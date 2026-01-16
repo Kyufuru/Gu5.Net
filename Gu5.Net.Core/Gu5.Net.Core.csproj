@@ -4,6 +4,39 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageIcon></PackageIcon>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Authors>Gu5.Net.Core</Authors>
+    <Company>Gu5.Net.Core</Company>
+    <Copyright>Gu5</Copyright>
+    <Description>.NET 8 通用项目工具库</Description>
+    <Name />
+    <PackageIconUrl />
+    <PackageId>Gu5.Net.Core</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseUrl />
+    <PackageProjectUrl />
+    <PackageReleaseNotes>fix: DateRange 解除依赖</PackageReleaseNotes>
+    <PackageTags />
+    <Product>Gu5.Net.Core</Product>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
+    <Version>1.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Link="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="favicon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
