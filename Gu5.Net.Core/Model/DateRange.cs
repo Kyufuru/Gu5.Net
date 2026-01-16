@@ -26,22 +26,6 @@
         }
 
         /// <summary>
-        /// 初始化
-        /// </summary>
-        /// <param name="dts"></param>
-        public DateRange(params DateTime[] dts)
-        {
-            Start = dts[0]; End = dts[1];
-        }
-
-        /// <summary>
-        /// 重载赋值运算符
-        /// </summary>
-        /// <param name="dts"></param>
-        public static implicit operator DateRange(DateTime[]? dts)
-            => dts is null ? new DateRange() : new DateRange(dts);
-
-        /// <summary>
         /// 重载赋值运算符
         /// </summary>
         /// <param name="dts"></param>
