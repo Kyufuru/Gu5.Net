@@ -1,6 +1,7 @@
-﻿using Gu5.Framework.Core.Enum;
+﻿using Gu5.Framework.Core;
+using Gu5.Framework.Core.Enum;
 
-namespace Gu5.Framework.Core
+namespace Gu5.Net.Core
 {
     /// <summary>
     /// 扩展
