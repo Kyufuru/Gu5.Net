@@ -4,11 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageIcon></PackageIcon>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageIcon>icon.png</PackageIcon>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Authors>Gu5.Net.Core</Authors>
-    <Company>Gu5.Net.Core</Company>
+    <Authors>Gu5</Authors>
+    <Company>Gu5</Company>
     <Copyright>Gu5</Copyright>
     <Description>.NET 8 通用项目工具库</Description>
     <Name />
@@ -17,12 +17,15 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageLicenseUrl />
     <PackageProjectUrl />
-    <PackageReleaseNotes>fix: DateRange 解除依赖</PackageReleaseNotes>
-    <PackageTags />
-    <Product>Gu5.Net.Core</Product>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
-    <Version>1.0.0</Version>
+    <PackageReleaseNotes>refact: 重命名 Ex -&gt; Extension</PackageReleaseNotes>
+    <PackageTags>Gu5</PackageTags>
+    <Product>Gu5.Net</Product>
+    <RepositoryType></RepositoryType>
+    <RepositoryUrl></RepositoryUrl>
+    <Version>1.0.1</Version>
+    <Title>Gu5</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <NeutralLanguage>zh-Hans</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,6 +37,10 @@
 
   <ItemGroup>
     <None Update="favicon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="icon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

@@ -1,4 +1,6 @@
-﻿namespace Gu5.Framework.Core.Model
+﻿using System;
+
+namespace Gu5.Framework.Core.Model
 {
     /// <summary>
     /// 日期范围
@@ -29,19 +31,23 @@
         /// 重载赋值运算符
         /// </summary>
         /// <param name="dts"></param>
-        public static implicit operator DateRange(DateTime?[]? dts)
+        public static implicit operator DateRange(DateTime?[] dts)
             => dts is null ? new DateRange() : new DateRange(dts);
 
         /// <summary>
         /// 转数组
         /// </summary>
         /// <returns></returns>
-        public DateTime[]? ToNullArray()
+        public DateTime[] ToArray()
         {
             if (Start is null || End is null) return null;
 
+            var rs = new DateTime[2];
             var td = DateTime.Today;
-            return [Start ?? td, End ?? td];
+
+            rs[0] = Start ?? td;
+            rs[1] = End ?? td;
+            return rs;
         }
         
     }

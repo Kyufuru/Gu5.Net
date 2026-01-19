@@ -13,6 +13,6 @@
         /// <summary>
         /// 分页
         /// </summary>
-        public PageReq Req { get; set; } = new();
+        public PageReq Req { get; set; } = new PageReq();
     }
 }

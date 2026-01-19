@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Gu5.Net.Core.Tool
+namespace Gu5.Framework.Core.Tool
 {
     /// <summary>
     /// 计时器扩展

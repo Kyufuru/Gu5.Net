@@ -1,4 +1,7 @@
-﻿namespace Gu5.Framework.Core.Model
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Gu5.Framework.Core.Model
 {
     /// <summary>
     /// 分页响应体
@@ -18,7 +21,7 @@
         public PageRsp(IEnumerable<T> data, long tot)
         {
             Total = tot;
-            Data = [.. data];
+            Data = data.ToList();
         }
 
         /// <summary>
@@ -29,7 +32,7 @@
         /// <summary>
         /// 数据
         /// </summary>
-        public List<T> Data { get; set; } = [];
+        public List<T> Data { get; set; } = new List<T>();
     }
 
 }

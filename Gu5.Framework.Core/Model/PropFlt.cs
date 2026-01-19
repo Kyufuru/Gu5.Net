@@ -25,6 +25,6 @@ namespace Gu5.Framework.Core.Model
         /// <summary>
         /// 值
         /// </summary>
-        public T Value { get; set; } = default!;
+        public T Value { get; set; } = default;
     }
 }

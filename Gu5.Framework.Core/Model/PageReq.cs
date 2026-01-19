@@ -1,4 +1,6 @@
-﻿namespace Gu5.Framework.Core.Model
+﻿using System;
+
+namespace Gu5.Framework.Core.Model
 {
     /// <summary>
     /// 分页

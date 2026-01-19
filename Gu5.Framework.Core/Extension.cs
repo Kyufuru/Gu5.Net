@@ -1,11 +1,16 @@
-﻿using Gu5.Net.Core.Enum;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
-namespace Gu5.Net.Core
+using Gu5.Framework.Core.Enum;
+
+namespace Gu5.Framework.Core
 {
     /// <summary>
     /// 扩展
     /// </summary>
-    public static class Ex
+    public static class Extension
     {
         /// <summary>
         /// 当条件为 true 时执行指定操作
@@ -50,44 +55,20 @@ namespace Gu5.Net.Core
         /// <param name="this">对象</param>
         /// <param name="f">设置方法</param>
         /// <returns></returns>
-        public static R? With<T, R>(this T? @this, Func<T, R> f)
+        public static R With<T, R>(this T @this, Func<T, R> f)
         {
-            if (@this is null) return default;
+            if (@this == null) return default;
             return f(@this);
         }
 
-        public static T? Find<T>(this IEnumerable<T> @this) =>
+        public static T Find<T>(this IEnumerable<T> @this) =>
             @this.FirstOrDefault();
 
-        public static T? Find<T>(this IEnumerable<T> @this, Func<T, bool> pred) =>
+        public static T Find<T>(this IEnumerable<T> @this, Func<T, bool> pred) =>
             @this.FirstOrDefault(pred);
 
-        public static T? Find<T>(this IEnumerable<T> @this, Func<T, bool> pred, T def) =>
-            @this.FirstOrDefault(pred, def);
-
-        public static void Deconstruct<T>(this T[] @this,
-            out T? e1, out T? e2)
-        {
-            e1 = @this.ElementAtOrDefault(0);
-            e2 = @this.ElementAtOrDefault(1);
-        }
-
-        public static void Deconstruct<T>(this T[] @this,
-            out T? e1, out T? e2, out T? e3)
-        {
-            e1 = @this.ElementAtOrDefault(0);
-            e2 = @this.ElementAtOrDefault(1);
-            e3 = @this.ElementAtOrDefault(2);
-        }
-
-        public static void Deconstruct<T>(this T[] @this,
-            out T? e1, out T? e2, out T? e3, out T? e4)
-        {
-            e1 = @this.ElementAtOrDefault(0);
-            e2 = @this.ElementAtOrDefault(1);
-            e3 = @this.ElementAtOrDefault(2);
-            e4 = @this.ElementAtOrDefault(3);
-        }
+        public static T Find<T>(this IEnumerable<T> @this, Func<T, bool> pred, T def) =>
+            @this.Find(pred).Also(x => (x == null).Then(() => x = def));
 
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> f)
         {
@@ -109,7 +90,8 @@ namespace Gu5.Net.Core
         /// 随机
         /// </summary>
         private static readonly ThreadLocal<Random> _rnd =
-            new(() => new(Guid.NewGuid().GetHashCode()));
+            new ThreadLocal<Random>(() => 
+                new Random(Guid.NewGuid().GetHashCode()));
 
         /// <summary>
         /// 随机采样
@@ -117,11 +99,21 @@ namespace Gu5.Net.Core
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static T? Sample<T>(this IList<T> list)
+        public static T Sample<T>(this IList<T> list)
         {
             if (list == null || list.Count == 0) return default;
-            return list[_rnd.Value!.Next(list.Count)];
+            return list[_rnd.Value.Next(list.Count)];
         }
+
+        /// <summary>
+        /// 上下限截取
+        /// </summary>
+        /// <param name="value">值</param>
+        /// <param name="min">下限</param>
+        /// <param name="max">上限</param>
+        /// <returns></returns>
+        public static int Clamp(int value, int min, int max) =>
+            Math.Max(Math.Min(value, max), min);
 
         /// <summary>
         /// 安全范围索引
@@ -132,8 +124,8 @@ namespace Gu5.Net.Core
         /// <returns></returns>
         public static List<T> Range<T>(this IList<T> @this, int i, int cnt)
         {
-            i = Math.Clamp(i, 0, @this.Count - 1);
-            cnt = Math.Clamp(cnt, 0, @this.Count - i);
+            i = Clamp(i, 0, @this.Count - 1);
+            cnt = Clamp(cnt, 0, @this.Count - i);
             return @this.ToList().GetRange(i, cnt);
         }
 
@@ -144,10 +136,10 @@ namespace Gu5.Net.Core
         /// <param name="this">列表</param>
         /// <param name="i">索引</param>
         /// <returns></returns>
-        public static T? At<T>(this IList<T> @this, int i)
+        public static T At<T>(this IList<T> @this, int i)
         {
             if (@this.Count < 1) return default;
-            i = Math.Clamp(i, 0, @this.Count - 1);
+            i = Clamp(i, 0, @this.Count - 1);
             return @this[i];
         }
 
@@ -157,7 +149,7 @@ namespace Gu5.Net.Core
         /// <param name="this">列表</param>
         /// <param name="i">索引</param>
         /// <returns></returns>
-        public static T? At<T>(this IEnumerable<T> @this, int i) =>
+        public static T At<T>(this IEnumerable<T> @this, int i) =>
             @this.ElementAtOrDefault(i);
 
         /// <summary>
@@ -226,14 +218,14 @@ namespace Gu5.Net.Core
         /// <param name="this"></param>
         /// <param name="lim"></param>
         /// <returns></returns>
-        public static List<V?> FFill<V, K>(this IReadOnlyDictionary<K, V> @this, 
+        public static List<V> FFill<V, K>(this IReadOnlyDictionary<K, V> @this, 
             IEnumerable<K> l, int lim = 1)
         {
             var cnt = 0;
             var ever = false;
             var last = default(V);
 
-            return [.. l.Select(x =>
+            return l.Select(x =>
             {
                 if (@this.TryGetValue(x, out var v))
                 {
@@ -250,7 +242,7 @@ namespace Gu5.Net.Core
                 }
 
                 return default;
-            })];
+            }).ToList();
         }
     }
 }
