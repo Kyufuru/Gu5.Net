@@ -1,9 +1,9 @@
-﻿namespace Gu5.Framework.Core.Enum
+﻿namespace Gu5.Net.Core.Enums
 {
     /// <summary>
-    /// 如果为空时
+    /// 如果存在时
     /// </summary>
-    public enum IfNull
+    public enum IfExist
     {
         /// <summary>
         /// 无
@@ -11,13 +11,13 @@
         None = 0,
 
         /// <summary>
-        /// 创建
+        /// 返回现有记录
         /// </summary>
-        Create = 1,
+        Return = 1,
 
         /// <summary>
-        /// 报错
+        /// 更新并返回记录
         /// </summary>
-        Fail = 2,
+        Update = 2,
     }
 }

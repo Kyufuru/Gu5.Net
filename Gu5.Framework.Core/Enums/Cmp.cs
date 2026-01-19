@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Gu5.Framework.Core.Enum
+namespace Gu5.Framework.Core.Enums
 {
     /// <summary>
     /// 数值比较

@@ -1,6 +1,6 @@
-﻿using Gu5.Framework.Core.Enum;
+﻿using Gu5.Net.Core.Enums;
 
-namespace Gu5.Framework.Core.Model
+namespace Gu5.Net.Core.Model
 {
     /// <summary>
     /// 属性筛选器

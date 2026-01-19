@@ -23,8 +23,7 @@ namespace Gu5.Net.Core.DependencyInjection
             ArgumentNullException.ThrowIfNull(@this);
             ArgumentNullException.ThrowIfNull(f);
 
-            if (l == null || l.Length == 0) 
-                throw new ArgumentException("必须显式指定程序集");
+            if (l == null || l.Length == 0) l = [typeof(T).Assembly];
 
             var t = typeof(T);
 

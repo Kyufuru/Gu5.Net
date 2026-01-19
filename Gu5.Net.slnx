@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Gu5.Framework.Core/Gu5.Framework.Core.csproj" Id="26d89129-2812-4577-aaa1-85b00c706bba" />
+  <Project Path="Gu5.Framework.Device.Focas/Gu5.Framework.Device.Focas.csproj" Id="148f6db8-b1dc-4125-8f7d-961582e79694" />
   <Project Path="Gu5.Net.Core/Gu5.Net.Core.csproj" Id="c50c99e6-b50f-48c6-b77a-12567f5801c7" />
 </Solution>

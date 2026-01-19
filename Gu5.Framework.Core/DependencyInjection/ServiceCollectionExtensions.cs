@@ -23,8 +23,7 @@ namespace Gu5.Framework.Core.DependencyInjection
         {
             if (@this == null) throw new ArgumentNullException(nameof(@this));
             if (f == null) throw new ArgumentNullException(nameof(f));
-            if (l == null || l.Length == 0) 
-                throw new ArgumentException("必须显式指定程序集", nameof(l));
+            if (l == null || l.Length == 0) l = new Assembly[] { typeof(T).Assembly };
 
             var t = typeof(T);
 

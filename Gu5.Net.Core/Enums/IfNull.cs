@@ -1,4 +1,4 @@
-﻿namespace Gu5.Framework.Core.Enum
+﻿namespace Gu5.Net.Core.Enums
 {
     /// <summary>
     /// 如果为空时

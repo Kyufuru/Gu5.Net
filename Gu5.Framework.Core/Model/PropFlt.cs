@@ -1,4 +1,4 @@
-﻿using Gu5.Framework.Core.Enum;
+﻿using Gu5.Framework.Core.Enums;
 
 namespace Gu5.Framework.Core.Model
 {

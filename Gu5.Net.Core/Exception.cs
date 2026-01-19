@@ -1,4 +1,4 @@
-﻿namespace Gu5.Framework.Core
+﻿namespace Gu5.Net.Core
 {
     /// <summary>
     /// 操作失败, [消息]

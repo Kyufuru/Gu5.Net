@@ -40,10 +40,11 @@ var len = text.With(x => x.Length);
 - **Find** / **ForEach** 集合操作扩展
 - **Sample** 随机采样
 - **At** / **Range** / **Mod** 安全索引
-- **RangeFrom** 获取时间轴
+- **GetDescription** 枚举描述
 
 #### 时间序列
 
+- **RangeFrom** 获取时间轴
 ```CSharp
 var timeline = RangeFrom(start, end);
 ```

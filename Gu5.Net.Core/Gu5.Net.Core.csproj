@@ -16,13 +16,13 @@
     <PackageId>Gu5.Net.Core</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageLicenseUrl />
-    <PackageProjectUrl />
-    <PackageReleaseNotes>refact: 重命名 Ex -&gt; Extension</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/Kyufuru/Gu5.Net</PackageProjectUrl>
+    <PackageReleaseNotes>feat: Enum GetDescription</PackageReleaseNotes>
     <PackageTags>Gu5</PackageTags>
     <Product>Gu5.Net</Product>
     <RepositoryType></RepositoryType>
-    <RepositoryUrl></RepositoryUrl>
-    <Version>1.0.1</Version>
+    <RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
+    <Version>1.0.4</Version>
     <Title>Gu5</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>zh-Hans</NeutralLanguage>

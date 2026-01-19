@@ -1,4 +1,4 @@
-﻿namespace Gu5.Framework.Core.Model
+﻿namespace Gu5.Net.Core.Model
 {
     /// <summary>
     /// 基础筛选实体

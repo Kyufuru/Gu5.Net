@@ -4,29 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26D89129-2812-4577-AAA1-85B00C706BBA}</ProjectGuid>
+    <ProjectGuid>{148F6DB8-B1DC-4125-8F7D-961582E79694}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gu5.Framework.Core</RootNamespace>
-    <AssemblyName>Gu5.Framework.Core</AssemblyName>
+    <RootNamespace>Gu5.Framework.Device.Focas</RootNamespace>
+    <AssemblyName>Gu5.Framework.Device.Focas</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gu5.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gu5.Framework.Core.1.0.4\lib\net461\Gu5.Framework.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -71,32 +59,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjection\ServiceCollectionExtensions.cs" />
-    <Compile Include="Enums\Cmp.cs" />
-    <Compile Include="Enums\Conj.cs" />
-    <Compile Include="Enums\DtUnit.cs" />
-    <Compile Include="Enums\IfExist.cs" />
-    <Compile Include="Enums\IfNull.cs" />
-    <Compile Include="Exception.cs" />
-    <Compile Include="Extension.cs" />
-    <Compile Include="Model\BaseFlt.cs" />
-    <Compile Include="Model\DateRange.cs" />
-    <Compile Include="Model\PageReq.cs" />
-    <Compile Include="Model\PageRsp.cs" />
-    <Compile Include="Model\PropFlt.cs" />
+    <Compile Include="BaseFocas1.cs" />
+    <Compile Include="Enums\FanucError.cs" />
+    <Compile Include="Enums\FocasRet.cs" />
+    <Compile Include="Internal\X64\Exception.cs" />
+    <Compile Include="Fanuc.cs" />
+    <Compile Include="IFocas1.cs" />
+    <Compile Include="Internal\X64\Focas1.cs" />
+    <Compile Include="Internal\X64\Native.cs" />
+    <Compile Include="Internal\X86\Focas1.cs" />
+    <Compile Include="Internal\X86\Native.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
-    <None Include="Gu5.Framework.Core.nuspec" />
-    <None Include="icon.png" />
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>

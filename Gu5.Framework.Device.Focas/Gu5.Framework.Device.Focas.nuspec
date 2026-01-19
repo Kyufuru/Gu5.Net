@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Gu5.Framework.Device.Focas</id>
+    <version>1.0.0</version>
+    <authors></authors>
+    <title>Gu5.Framework.Device.Focas</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!-- <license type="expression">MIT</license> -->
+    <!-- <icon>icon.png</icon> -->
+    <!-- <projectUrl></projectUrl>  -->
+    <description></description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright ©  2026</copyright>
+    <!-- <tags>Tag1 Tag2</tags> -->
+    <dependencies>
+      <group targetFramework="net461">
+        <!--  <dependency id="SampleDependency" version="1.0.0" /> -->
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib/net461/*.dll" target="lib/net461/" />
+  </files>
+</package>
