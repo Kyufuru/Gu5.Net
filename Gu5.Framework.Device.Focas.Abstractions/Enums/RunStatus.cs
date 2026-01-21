@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace Gu5.Framework.Device.Focas.Enums
+namespace Gu5.Framework.Device.Focas.Abstractions.Enums
 {
     /// <summary>
     /// 运行状态

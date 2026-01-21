@@ -11,10 +11,19 @@ namespace Gu5.Framework.Device.Focas
     public class FocasException : Exception
     {
         /// <summary>
+        /// 错误码
+        /// </summary>
+        public int Code { get; } = 0;
+
+        /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="d"></param>
-        internal FocasException(short d) : base(CodeFrom(d).GetDescription()) { }
+        internal FocasException(short d) 
+            : base($"{CodeFrom(d).GetDescription()} ({d})") 
+        {
+            Code = d;
+        }
 
         /// <summary>
         /// 将内部返回值转换为标准错误

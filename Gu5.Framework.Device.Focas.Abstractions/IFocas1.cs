@@ -1,11 +1,13 @@
-﻿using Gu5.Framework.Device.Focas.Models;
+﻿using System;
 
-namespace Gu5.Framework.Device.Focas
+using Gu5.Framework.Device.Focas.Abstractions.Entities;
+
+namespace Gu5.Framework.Device.Focas.Abstractions
 {
     /// <summary>
     /// 公共接口
     /// </summary>
-    public interface IFocas1
+    public interface IFocas1: IDisposable
     {
         /// <summary>
         /// 连接
@@ -39,7 +41,7 @@ namespace Gu5.Framework.Device.Focas
         /// 获取加工信息
         /// </summary>
         /// <returns>加工信息</returns>
-        ProcInfo GetProdInfo();
+        ProcInfo GetProcInfo();
 
         /// <summary>
         /// 读取参数

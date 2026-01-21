@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Gu5.Framework.Device.Focas.Models
+namespace Gu5.Framework.Device.Focas.Abstractions.Entities
 {
     /// <summary>
     /// 连接信息

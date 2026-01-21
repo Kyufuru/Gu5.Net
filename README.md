@@ -82,3 +82,18 @@ services.AddSingletonOf<T>(asm);
 services.AddScopedOf<T>(asm);
 services.AddTransientOf<T>(asm);
 ```
+
+### 任务调度
+- **Interval**
+```CSharp
+var sche = new Interval(async () => 
+{
+    // Task to run
+}, 60000);
+
+// 启动
+sche.Start();
+
+// 关闭
+sche.Stop();
+```

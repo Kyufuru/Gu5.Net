@@ -4,19 +4,34 @@
 
 ### 使用说明
 
-- 下载 [Funac Focas Library](https://github.com/wheeliar/FANUC_Focas_API/tree/main)
-- 添加 dll 到指定目录
-    a. `C:\\Windows\System32` (32 位)
-    b. `C:\\Windows\System` (64 位)
+- 下载 [Funac Focas Library](https://github.com/wheeliar/FANUC_Focas_API)
+- 添加 dll 到项目根目录
 
-| 名称 | 环境 | 描述 |
-| --- | --- | --- |
-| fwlib64.dll | x64 | FOCAS1 主库 |
-| fwlibe64.dll | x64 | Ethernet 通信支持 |
-| fwlib30i64.dll | x64 | 0i-F / 30i / PLUS 系列支持 |
-| fwlib32.dll | x86 | FOCAS1 主库 |
-| fwlibe1.dll | x86 | Ethernet 通信支持 |
-| fwlib30i.dll | x86 | 0i-F / 30i / PLUS 系列支持 |
+| 环境 | 名称 | 描述 | 必需 |
+| --- | --- | --- | --- |
+| x64 | Fwlib64.dll | CNC/PMC 控制 | ✅ |
+| x64 | fwlibe64.dll | TCP/IP 处理 | ✅ |
+| x64 | fwlib30i64.dll | 30i/31i/32i/35i, PMi-A 扩展 | |
+| x64 | fwlib0iD64.dll | 0i-D 扩展 | |
+| x64 | fwlibNCG64.dll | FS31i/32i/35i NCGuidePro 扩展 | |
+| x64 | fwlib0DN64.dll | FS0i-D NCGuidePro 扩展 | |
+| x64 | Fwlib64.lib | 导入库 | |
+| x86 | Fwlib32.dll | CNC/PMC 控制 | ✅ |
+| x86 | fwlibe1.dll | TCP/IP 通信 | ✅ |
+| x86 | fwlib30i.dll | 30i/31i/32i/35i, PMi-A 扩展 | |
+| x86 | Fwlib150.dll | 150-B 扩展 | |
+| x86 | Fwlib15i.dll | 150i 扩展 | |
+| x86 | Fwlib160.dll | 160/180/210 扩展 | |
+| x86 | Fwlib16W.dll | 160i/180i-W 扩展 | |
+| x86 | FWLIB0i.dll | 0i-A 扩展 | |
+| x86 | Fwlib0iB.dll | 0i-B 扩展 | |
+| x86 | fwlib0iD.dll | 0i-D 扩展 | |
+| x86 | Fwlibpm.dll | Power Mate-D/H 扩展 | |
+| x86 | Fwlibpmi.dll | Power Mate i-D/H 扩展 | |
+| x86 | fwlibNCG.dll | FS31i/32i/35i NCGuidePro 扩展 | |
+| x86 | fwlib0DN.dll | FS31i/32i/35i NCGuidePro 扩展 | |
+| x86 | Fwlib32.lib | 导入库 | |
+| x86 | fwpmcalm.ini | PMC 警告信息 | |
 
 - 连接设备
 ```CSharp

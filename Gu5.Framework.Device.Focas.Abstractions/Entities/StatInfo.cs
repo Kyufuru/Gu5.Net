@@ -1,6 +1,6 @@
-﻿using Gu5.Framework.Device.Focas.Enums;
+﻿using Gu5.Framework.Device.Focas.Abstractions.Enums;
 
-namespace Gu5.Framework.Device.Focas.Models
+namespace Gu5.Framework.Device.Focas.Abstractions.Entities
 {
     /// <summary>
     /// 机床信息

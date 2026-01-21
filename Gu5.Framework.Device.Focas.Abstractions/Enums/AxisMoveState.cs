@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gu5.Framework.Device.Focas.Enums
+namespace Gu5.Framework.Device.Focas.Abstractions.Enums
 {
     /// <summary>
     /// 轴移动状态

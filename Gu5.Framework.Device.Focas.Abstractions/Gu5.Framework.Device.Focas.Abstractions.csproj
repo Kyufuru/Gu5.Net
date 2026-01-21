@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{148F6DB8-B1DC-4125-8F7D-961582E79694}</ProjectGuid>
+    <ProjectGuid>{145F1F8C-3986-49F8-83F5-A6326ECA4AA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gu5.Framework.Device.Focas</RootNamespace>
-    <AssemblyName>Gu5.Framework.Device.Focas</AssemblyName>
+    <RootNamespace>Gu5.Framework.Device.Focas.Abstractions</RootNamespace>
+    <AssemblyName>Gu5.Framework.Device.Focas.Abstractions</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -46,17 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gu5.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gu5.Framework.Core.1.0.4\lib\net461\Gu5.Framework.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,24 +56,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseFocas1.cs" />
-    <Compile Include="Enums\FanucError.cs" />
-    <Compile Include="Enums\FocasRet.cs" />
-    <Compile Include="Exception.cs" />
-    <Compile Include="Fanuc.cs" />
-    <Compile Include="Internal\X64\Focas1.cs" />
-    <Compile Include="Internal\X64\Native.cs" />
-    <Compile Include="Internal\X86\Focas1.cs" />
-    <Compile Include="Internal\X86\Native.cs" />
+    <Compile Include="Entities\ConnInfo.cs" />
+    <Compile Include="Entities\ProcInfo.cs" />
+    <Compile Include="Entities\SpindleInfo.cs" />
+    <Compile Include="Entities\StatInfo.cs" />
+    <Compile Include="Entities\ToolInfo.cs" />
+    <Compile Include="Enums\AlarmStatus.cs" />
+    <Compile Include="Enums\AutoMode.cs" />
+    <Compile Include="Enums\AxisMoveState.cs" />
+    <Compile Include="Enums\CncType.cs" />
+    <Compile Include="Enums\EmergencyStatus.cs" />
+    <Compile Include="Enums\MstbStatus.cs" />
+    <Compile Include="Enums\PosType.cs" />
+    <Compile Include="Enums\ProgramEditStatus.cs" />
+    <Compile Include="Enums\RunStatus.cs" />
+    <Compile Include="Enums\SpindleType.cs" />
+    <Compile Include="Enums\TMMode.cs" />
+    <Compile Include="IFocas1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Gu5.Framework.Device.Focas.nuspec" />
-    <None Include="packages.config" />
-    <None Include="README.md">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Gu5.Framework.Device.Focas.Abstractions.nuspec" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -91,12 +86,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Gu5.Framework.Device.Focas.Abstractions\Gu5.Framework.Device.Focas.Abstractions.csproj">
-      <Project>{145f1f8c-3986-49f8-83f5-a6326eca4aa2}</Project>
-      <Name>Gu5.Framework.Device.Focas.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

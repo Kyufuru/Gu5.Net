@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Gu5.Framework.Device.Focas.Models
+﻿namespace Gu5.Framework.Device.Focas.Abstractions.Entities
 {
     /// <summary>
     /// 主轴信息

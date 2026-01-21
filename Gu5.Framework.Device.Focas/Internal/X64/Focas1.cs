@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net;
 
-using Gu5.Framework.Device.Focas.Enums;
-using Gu5.Framework.Device.Focas.Models;
+using Gu5.Framework.Device.Focas.Abstractions.Entities;
+using Gu5.Framework.Device.Focas.Abstractions.Enums;
 
 namespace Gu5.Framework.Device.Focas.Internal.X64
 {
@@ -163,7 +163,7 @@ namespace Gu5.Framework.Device.Focas.Internal.X64
         private const int TOTAL_PROC_TM = 6753;
 
         /// <inheritdoc />
-        public override ProcInfo GetProdInfo()
+        public override ProcInfo GetProcInfo()
         {
             return new ProcInfo()
             {

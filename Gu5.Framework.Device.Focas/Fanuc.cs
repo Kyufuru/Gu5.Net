@@ -2,29 +2,15 @@
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 
-using Gu5.Framework.Device.Focas.Models;
+using Gu5.Framework.Device.Focas.Abstractions;
+using Gu5.Framework.Device.Focas.Abstractions.Entities;
 
 namespace Gu5.Framework.Device.Focas
 {
     public static class Fanuc
     {
-        /// <summary>
-        /// Dll 文件检查
-        /// </summary>
-        /// <exception cref="InvalidOperationException"></exception>
-        public static void CheckDll()
-        {
-            var l = Environment.Is64BitProcess
-                ? new[] { "fwlib64.dll", "fwlibe64.dll", "fwlib30i64.dll" }
-                : new[] { "fwlib32.dll", "fwlibe1.dll", "fwlib30i.dll" };
-
-            var f = l.FirstOrDefault(x => !File.Exists(x));
-            if (f == null) return;
-            var msg = $"缺少 FOCAS 依赖文件: {f}";
-            throw new InvalidOperationException(msg);
-        }
-
         /// <summary>
         /// 创建实例
         /// </summary>
@@ -39,8 +25,6 @@ namespace Gu5.Framework.Device.Focas
             int timeout = 5000
         )
         {
-            CheckDll();
-
             if (!IPAddress.TryParse(host, out var h))
                 throw new ArgumentException(nameof(host));
 

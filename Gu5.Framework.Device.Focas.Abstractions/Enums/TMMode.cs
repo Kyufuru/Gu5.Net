@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gu5.Framework.Device.Focas.Enums
+namespace Gu5.Framework.Device.Focas.Abstractions.Enums
 {
     /// <summary>
     /// T/M 模式(复合加工机床专用)

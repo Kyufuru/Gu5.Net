@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Net;
 
+using Gu5.Framework.Device.Focas.Abstractions;
+using Gu5.Framework.Device.Focas.Abstractions.Entities;
 using Gu5.Framework.Device.Focas.Enums;
-using Gu5.Framework.Device.Focas.Models;
 
 namespace Gu5.Framework.Device.Focas
 {
-    internal abstract class BaseFocas1 : IFocas1, IDisposable
+    internal abstract class BaseFocas1 : IFocas1
     {
         private bool _disposed;
 
@@ -91,7 +92,7 @@ namespace Gu5.Framework.Device.Focas
         }
 
         /// <inheritdoc />
-        public virtual ProcInfo GetProdInfo()
+        public virtual ProcInfo GetProcInfo()
         {
             throw new NotImplementedException();
         }

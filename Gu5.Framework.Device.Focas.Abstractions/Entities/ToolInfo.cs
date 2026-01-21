@@ -1,4 +1,4 @@
-﻿namespace Gu5.Framework.Device.Focas.Models
+﻿namespace Gu5.Framework.Device.Focas.Abstractions.Entities
 {
     /// <summary>
     /// 刀具状态

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Gu5.Framework.Device.Focas.Enums
+namespace Gu5.Framework.Device.Focas.Abstractions.Enums
 {
     public enum SpindleType
     {
