@@ -79,6 +79,7 @@
     <Compile Include="Enums\IfNull.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="Interval.cs" />
     <Compile Include="Model\BaseFlt.cs" />
     <Compile Include="Model\DateRange.cs" />
     <Compile Include="Model\PageReq.cs" />

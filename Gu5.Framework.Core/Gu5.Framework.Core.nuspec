@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Gu5.Framework.Core</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <authors>Gu5</authors>
     <title>Gu5.Framework.Core</title>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/Kyufuru/Gu5.Net</projectUrl>
     <description>.NET Framework 4.6.1 通用项目工具库</description>
-    <releaseNotes>feat: Enum GetDescription</releaseNotes>
+    <releaseNotes>feat: Interval</releaseNotes>
     <copyright>Copyright © Gu5 2026</copyright>
     <!-- <tags>Tag1 Tag2</tags> -->
     <dependencies>
