@@ -17,7 +17,7 @@
 
 	<ItemGroup>
 	<PackageReference Include="AntdUI" Version="2.2.13" />
-	<PackageReference Include="Gu5.Net.Core" Version="1.0.5" />
+	<PackageReference Include="Gu5.Core" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

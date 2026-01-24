@@ -11,14 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\Gu5.Net.Winforms.UI\Gu5.Net.Winforms.UI.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<None Update="Fwlib64.dll">
+	<None Update="lib\Fwlib64.dll">
 	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
-	<None Update="fwlibe64.dll">
+	<None Update="lib\fwlibe64.dll">
 	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
   </ItemGroup>

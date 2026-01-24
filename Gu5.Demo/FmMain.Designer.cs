@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            home1 = new Gu5.Net.Winforms.UI.Controls.Home();
             SuspendLayout();
-            // 
-            // home1
-            // 
-            home1.BackColor = Color.Transparent;
-            home1.Dock = DockStyle.Fill;
-            home1.Location = new Point(0, 0);
-            home1.Name = "home1";
-            home1.Size = new Size(1200, 700);
-            home1.TabIndex = 0;
             // 
             // FmMain
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1200, 700);
-            Controls.Add(home1);
             Margin = new Padding(2);
             Name = "FmMain";
             Text = "Form1";
@@ -52,7 +41,5 @@
         }
 
         #endregion
-
-        private UI.Controls.Home home1;
     }
 }
