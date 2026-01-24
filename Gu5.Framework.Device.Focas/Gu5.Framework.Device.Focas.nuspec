@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Gu5.Framework.Device.Focas</id>
-    <version>1.0.8</version>
+    <version>1.0.8.3</version>
     <authors>Gu5</authors>
     <title>Gu5.Framework.Device.Focas</title>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <!--<icon>icon.png</icon>-->
     <projectUrl>https://github.com/Kyufuru/Gu5.Net/tree/master/Gu5.Framework.Device.Focas</projectUrl>
     <description>Fanuc 数控机床数据采集库</description>
-    <releaseNotes>feat: ExecptionCode</releaseNotes>
+    <releaseNotes>fix: cnc_rdposition</releaseNotes>
     <copyright>Copyright © Gu5 2026</copyright>
     <!-- <tags>Tag1 Tag2</tags> -->
     <dependencies>

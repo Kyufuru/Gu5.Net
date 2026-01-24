@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Reflection;
 
 using Gu5.Framework.Device.Focas.Abstractions.Entities;
 using Gu5.Framework.Device.Focas.Abstractions.Enums;
@@ -105,6 +106,18 @@ namespace Gu5.Framework.Device.Focas.Internal.X64
             }
         }
 
+        /// <summary>
+        /// 获取轴数量
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        private static int GetAxisCount(Native.ODBPOS d) =>
+            d.GetType().GetFields(
+                BindingFlags.Public |
+                BindingFlags.Instance |
+                BindingFlags.DeclaredOnly
+            ).Length;
+
         /// <inheritdoc />
         public override ToolInfo GetToolInfo()
         {
@@ -112,8 +125,8 @@ namespace Gu5.Framework.Device.Focas.Internal.X64
             var rs1 = Native.cnc_actf(Hdl, d1);
             Valid(rs1);
 
-            short cnt = 0;
             var d2 = new Native.ODBPOS();
+            var cnt = (short)GetAxisCount(d2);
             var rs2 = Native.cnc_rdposition(Hdl, (short)PosType.All, ref cnt, d2);
             Valid(rs2);
 

@@ -349,10 +349,6 @@ namespace Gu5.Framework.Device.Focas.Internal.X64
             public POSELMALL p2 = new POSELMALL();
             public POSELMALL p3 = new POSELMALL();
             public POSELMALL p4 = new POSELMALL();
-            public POSELMALL p5 = new POSELMALL();
-            public POSELMALL p6 = new POSELMALL();
-            public POSELMALL p7 = new POSELMALL();
-            public POSELMALL p8 = new POSELMALL();
             // In case of 8 axes.
             // if you need the more information, you must be add the member.
         }
