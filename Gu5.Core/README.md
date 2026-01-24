@@ -4,10 +4,6 @@
 
 ## 安装与使用
 
-```Bash
-dotnet add package Gu5.Core
-```
-
 ```CSharp
 using Gu5.Core
 ```

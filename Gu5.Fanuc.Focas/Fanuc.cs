@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Net;
 
-using Gu5.Framework.Device.Focas.Abstractions;
-using Gu5.Framework.Device.Focas.Abstractions.Entities;
+using Gu5.Fanuc.Focas.Models;
 
-namespace Gu5.Framework.Device.Focas
+namespace Gu5.Fanuc.Focas
 {
     public static class Fanuc
     {
