@@ -1,8 +1,6 @@
 <Solution>
   <Project Path="Gu5.Core/Gu5.Core.csproj" Id="7b7d9198-b578-4e1c-932d-b81aa7663af5" />
   <Project Path="Gu5.Fanuc.Focas/Gu5.Fanuc.Focas.csproj" Id="61d23396-9f93-4a7d-8b97-1faa3319161f" />
-  <Project Path="Gu5.Framework.Device.Focas.Abstractions/Gu5.Framework.Device.Focas.Abstractions.csproj" Id="145f1f8c-3986-49f8-83f5-a6326eca4aa2" />
-  <Project Path="Gu5.Framework.Device.Focas/Gu5.Framework.Device.Focas.csproj" Id="148f6db8-b1dc-4125-8f7d-961582e79694" />
   <Project Path="Gu5.Net.Winforms.Example/Gu5.Net.Winforms.Example.csproj" Id="c7cfaf4e-bf86-414d-bdbe-8fd414e19f65" />
   <Project Path="Gu5.Net.Winforms.UI/Gu5.Net.Winforms.UI.csproj" Id="ff2168f5-de3a-4bce-b525-b02f482e7707" />
 </Solution>

@@ -11,8 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\Gu5.Framework.Device.Focas.Abstractions\Gu5.Framework.Device.Focas.Abstractions.csproj" />
-	<ProjectReference Include="..\Gu5.Framework.Device.Focas\Gu5.Framework.Device.Focas.csproj" />
 	<ProjectReference Include="..\Gu5.Net.Winforms.UI\Gu5.Net.Winforms.UI.csproj" />
   </ItemGroup>
 
