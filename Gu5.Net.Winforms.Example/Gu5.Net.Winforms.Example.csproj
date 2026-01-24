@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net8.0-windows</TargetFramework>
+	<Nullable>enable</Nullable>
+	<UseWindowsForms>true</UseWindowsForms>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+	<ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\Gu5.Framework.Device.Focas.Abstractions\Gu5.Framework.Device.Focas.Abstractions.csproj" />
+	<ProjectReference Include="..\Gu5.Framework.Device.Focas\Gu5.Framework.Device.Focas.csproj" />
+	<ProjectReference Include="..\Gu5.Net.Winforms.UI\Gu5.Net.Winforms.UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Update="Fwlib64.dll">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+	<None Update="fwlibe64.dll">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+  </ItemGroup>
+
+</Project>
