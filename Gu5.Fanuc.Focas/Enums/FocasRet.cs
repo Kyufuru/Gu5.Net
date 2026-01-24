@@ -1,4 +1,6 @@
-﻿namespace Gu5.Fanuc.Focas.Enums
+﻿#pragma warning disable
+
+namespace Gu5.Fanuc.Focas.Enums
 {
     /* Error Codes */
     internal enum FocasRet

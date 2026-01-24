@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace Gu5.Fanuc.Focas.Enums
 {
@@ -11,7 +7,16 @@ namespace Gu5.Fanuc.Focas.Enums
     /// </summary>
     public enum TMMode
     {
+        /// <summary>
+        /// T 模式
+        /// </summary>
+        [Description("T 模式")]
         T,
+
+        /// <summary>
+        /// M 模式
+        /// </summary>
+        [Description("M 模式")]
         M,
     }
 }

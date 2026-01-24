@@ -50,7 +50,7 @@ namespace Gu5.Fanuc.Focas.Models
         /// <summary>
         /// 最大轴数
         /// </summary>
-        public int MaxAxis { get; set; } = 0;
+        public int MaxAxis { get; set; }
 
         /// <summary>
         /// 机床型号
@@ -60,11 +60,11 @@ namespace Gu5.Fanuc.Focas.Models
         /// <summary>
         /// 主程序号
         /// </summary>
-        public int Program { get; set; } = 0;
+        public int Program { get; set; }
 
         /// <summary>
         /// 子程序号(运行程序号)
         /// </summary>
-        public int SubProgram { get; set; } = 0;
+        public int SubProgram { get; set; }
     }
 }

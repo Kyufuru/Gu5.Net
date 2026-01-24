@@ -8,11 +8,11 @@
         /// <summary>
         /// 转速
         /// </summary>
-        public double RSpeed { get; set; } = 0;
+        public double RSpeed { get; set; }
 
         /// <summary>
         /// 负载
         /// </summary>
-        public int Load { get; set; } = 0;
+        public int Load { get; set; }
     }
 }

@@ -5,6 +5,9 @@ using Gu5.Fanuc.Focas.Models;
 
 namespace Gu5.Fanuc.Focas
 {
+    /// <summary>
+    /// 工具类
+    /// </summary>
     public static class Fanuc
     {
         /// <summary>
@@ -12,6 +15,7 @@ namespace Gu5.Fanuc.Focas
         /// </summary>
         /// <param name="host">主机</param>
         /// <param name="port">端口</param>
+        /// <param name="timeout">超时(ms)</param>
         /// <exception cref="InvalidOperationException"></exception>
         /// <returns></returns>
         public static IFocas1 Create
@@ -22,7 +26,7 @@ namespace Gu5.Fanuc.Focas
         )
         {
             if (!IPAddress.TryParse(host, out var h))
-                throw new ArgumentException(nameof(host));
+                throw new ArgumentException(null, nameof(host));
 
             var rs = Environment.Is64BitProcess
                 ? new Internal.X64.Focas1(h, port, timeout)

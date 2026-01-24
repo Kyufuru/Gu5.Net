@@ -12,7 +12,7 @@ namespace Gu5.Fanuc.Focas
         /// <summary>
         /// 错误码
         /// </summary>
-        public int Code { get; } = 0;
+        public int Code { get; }
 
         /// <summary>
         /// 构造函数

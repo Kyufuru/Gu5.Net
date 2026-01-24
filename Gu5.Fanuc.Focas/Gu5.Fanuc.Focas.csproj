@@ -9,6 +9,24 @@
     <Authors>Gu5</Authors>
     <Company>Gu5</Company>
     <Description>Gu5 Fanuc Focas SDK</Description>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/Kyufuru/Gu5.Net/tree/master/Gu5.Fanuc.Focas</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
+    <PackageTags>focas;fanuc</PackageTags>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <PackageReleaseNotes>Fanuc Focas 数据采集 SDK</PackageReleaseNotes>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Copyright />
+    <Name />
+    <PackageIconUrl />
+    <PackageId>Gu5.Fanuc.Focas</PackageId>
+    <PackageLicenseExpression />
+    <PackageLicenseUrl />
+    <Product>Gu5.Fanuc.Focas</Product>
+    <RepositoryType />
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,6 +41,17 @@
 
   <ItemGroup>
     <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Gu5.Core\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\Gu5.Core\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
