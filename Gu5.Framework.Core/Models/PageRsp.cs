@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Gu5.Framework.Core.Model
+namespace Gu5.Framework.Core.Models
 {
     /// <summary>
     /// 分页响应体

@@ -80,11 +80,11 @@
     <Compile Include="Exception.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Interval.cs" />
-    <Compile Include="Model\BaseFlt.cs" />
-    <Compile Include="Model\DateRange.cs" />
-    <Compile Include="Model\PageReq.cs" />
-    <Compile Include="Model\PageRsp.cs" />
-    <Compile Include="Model\PropFlt.cs" />
+    <Compile Include="Models\BaseFlt.cs" />
+    <Compile Include="Models\DateRange.cs" />
+    <Compile Include="Models\PageReq.cs" />
+    <Compile Include="Models\PageRsp.cs" />
+    <Compile Include="Models\PropFlt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

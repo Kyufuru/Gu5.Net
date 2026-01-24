@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gu5.Framework.Core.Model
+namespace Gu5.Framework.Core.Models
 {
     /// <summary>
     /// 日期范围
