@@ -1,99 +1,19 @@
-﻿# Gu5.Net
+﻿# 谷雨.NET
+[![GitHub](https://img.shields.io/badge/GitHub-Gu5.NET-%23121011.svg?logo=github&logoColor=white)](https://github.com/Kyufuru/Gu5.Net)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
-.NET 通用工具库
+## 仓库结构
 
-## 安装与使用
+- 每个子目录对应一个独立的 NuGet 包
+- 使用方式请查看各子项目 README 文档
 
-```Bash
-dotnet add package Gu5.Net
-```
+## 运行环境
 
-```CSharp
-// .NET 8
-using Gu5.Net.Core
+.NET Framework 4.6.1 及以上版本。
 
-// .NET Framework 4.6.1
-using Gu5.Framework.Core
-```
+## 项目列表
 
-### 功能列表
-
-#### 函数式编程
-
-- **Then** / **Else** 条件执行
-
-```CSharp
-(value > 0)
-    .Then(() => Console.WriteLine("OK"))
-    .Else(() => Console.WriteLine("NG"));
-```
-
-- **Also** / **With** 条件赋值
-```CSharp
-var rs = new Object()
-    .Also(x => x.Init())
-    .Also(x => x.Validate());
-
-var len = text.With(x => x.Length);
-```
-
-- **Find** / **ForEach** 集合操作扩展
-- **Sample** 随机采样
-- **At** / **Range** / **Mod** 安全索引
-- **GetDescription** 枚举描述
-
-#### 时间序列
-
-- **RangeFrom** 获取时间轴
-```CSharp
-var timeline = RangeFrom(start, end);
-```
-
-- **Resample** 重采样(Pandas `resample` + `last`)
-```CSharp
-var dict = data.Resample(x => x.Timestamp);
-```
-
-- **FFill** Pandas `ffill`
-```CSharp
-var values = dict.FFill(keys, lim: 3);
-```
-
-#### 依赖注入
-
-```CSharp
-using Gu5.Framework.Core.DependencyInjection;
-```
-
-- **AddImplOf** 扫描注册所有实现
-```CSharp
-services.AddImplOf<IMyService>(
-    (services, serviceType, implType) =>
-        services.AddSingleton(serviceType, implType),
-    typeof(IMyService).Assembly
-);
-```
-
-- **AddSingletonOf** / **AddScopedOf** / **AddTransientOf** 全局/实例/单次 生命周期
-```CSharp
-var asm = typeof(T).Assembly;
-
-services.AddSingletonOf<T>(asm);
-services.AddScopedOf<T>(asm);
-services.AddTransientOf<T>(asm);
-```
-
-### 任务调度
-- **Interval**
-```CSharp
-var sche = new Interval(async () => 
-{
-    // Task to run
-}, 60000);
-
-// 启动
-sche.Start();
-
-// 关闭
-sche.Stop();
-```
+|名称|类型|说明|
+|-|-|
+|[Gu5.Core](https://github.com/Kyufuru/Gu5.Net/tree/master/Gu5.Core)|基础库|通用工具与基础扩展|
+|[Gu5.Fanuc.Focas](https://github.com/Kyufuru/Gu5.Net/tree/master/Gu5.Fanuc.Focas)|SDK 封装|FANUC FOCAS 数据采集|
