@@ -17,22 +17,20 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageLicenseUrl />
     <PackageProjectUrl>https://github.com/Kyufuru/Gu5.Net</PackageProjectUrl>
-    <PackageReleaseNotes>feat: Enum GetDescription</PackageReleaseNotes>
+    <PackageReleaseNotes>feat: Exception</PackageReleaseNotes>
     <PackageTags>Gu5</PackageTags>
     <Product>Gu5.Net</Product>
     <RepositoryType></RepositoryType>
     <RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Title>Gu5</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>zh-Hans</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Link="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Remove="icon.png" />
+    <None Remove="README.md" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,10 +39,6 @@
 
   <ItemGroup>
     <None Update="favicon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="icon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

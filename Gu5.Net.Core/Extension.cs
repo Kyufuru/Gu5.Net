@@ -178,13 +178,10 @@ namespace Gu5.Net.Core
         /// </summary>
         /// <param name="t1">开始时间</param>
         /// <param name="t2">结束时间</param>
-        /// <param name="ut">时间单位</param>
         /// <exception cref="NotImplementedException"></exception>
         /// <returns><![CDATA[List<DateTime>]]></returns>
-        public static List<DateTime> RangeFrom(DateTime t1, DateTime t2, DtUnit ut = DtUnit.Minute)
+        public static List<DateTime> RangeFrom(DateTime t1, DateTime t2)
         {
-            if (ut != DtUnit.Minute) throw new NotImplementedException();
-
             var tm = new DateTime
             (
                 t1.Year, t1.Month, t1.Day,
@@ -201,16 +198,13 @@ namespace Gu5.Net.Core
         /// 重采样
         /// </summary>
         /// <typeparam name="T"/>
-        /// <param name="this">The this.</param>
-        /// <param name="f">The F.</param>
-        /// <param name="ut">The ut.</param>
+        /// <param name="this">列表</param>
+        /// <param name="f">时间字段</param>
         /// <exception cref="NotImplementedException"></exception>
         /// <returns><![CDATA[Dictionary<DateTime, T>]]></returns>
-        public static Dictionary<DateTime, T> Resample<T>(this IEnumerable<T> @this,
-            Func<T, DateTime> f, DtUnit ut = DtUnit.Minute)
+        public static Dictionary<DateTime, T> Resample<T>(
+            this IEnumerable<T> @this, Func<T, DateTime> f)
         {
-            if (ut != DtUnit.Minute) throw new NotImplementedException();
-
             return @this.GroupBy(x => new DateTime(
                 f(x).Year, f(x).Month, f(x).Day,
                 f(x).Hour, f(x).Minute, 0, f(x).Kind
