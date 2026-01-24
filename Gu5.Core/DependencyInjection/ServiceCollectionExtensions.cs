@@ -1,0 +1,91 @@
+﻿using System;
+using System.Linq;
+using System.Reflection;
+
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Gu5.Core.DependencyInjection
+{
+    /// <summary>
+    /// 服务扩展
+    /// </summary>
+    public static class ServiceCollectionExtensions
+    {
+        /// <summary>
+        /// 扫描注册 <typeparamref name="T"/> 的实现类型
+        /// </summary>
+        /// <typeparam name="T">接口类型</typeparam>
+        /// <param name="this">服务</param>
+        /// <param name="f">操作</param>
+        /// <param name="l">程序集<code>Typeof(T).Assembly</code></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IServiceCollection AddImplOf<T>(this IServiceCollection @this,
+            Action<IServiceCollection, Type, Type> f, params Assembly[] l)
+        {
+            if (@this == null) throw new ArgumentNullException(nameof(@this));
+            if (f == null) throw new ArgumentNullException(nameof(f));
+            if (l == null || l.Length == 0) l = new Assembly[] { typeof(T).Assembly };
+
+            var t = typeof(T);
+
+            var rs = l.Distinct().SelectMany(a =>
+            {
+                try 
+                { 
+                    return a.GetTypes(); 
+                }
+                catch (ReflectionTypeLoadException ex)
+                {
+                    return ex.Types.OfType<Type>();
+                }
+                catch
+                {
+                    return Type.EmptyTypes;
+                }
+            }).Where(x => 
+                !x.IsAbstract && 
+                !x.IsInterface && 
+                t.IsAssignableFrom(x)
+            );
+
+            foreach (var x in rs) f(@this, t, x);
+
+            return @this;
+        }
+
+        /// <summary>
+        /// 扫描注册 <typeparamref name="T"/> 的实现类型
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="srvs">服务</param>
+        /// <param name="asms">程序集</param>
+        /// <returns></returns>
+        public static IServiceCollection AddSingletonOf<T>(
+            this IServiceCollection srvs, params Assembly[] asms) =>
+            srvs.AddImplOf<T>((s, t, x) => s.AddSingleton(t, x), asms);
+
+        /// <summary>
+        /// 扫描注册 <typeparamref name="T"/> 的实现类型
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="srvs">服务</param>
+        /// <param name="asms">程序集</param>
+        /// <returns></returns>
+        public static IServiceCollection AddScopedOf<T>(
+            this IServiceCollection srvs, params Assembly[] asms) =>
+            srvs.AddImplOf<T>((s, t, x) => s.AddScoped(t, x), asms);
+
+        /// <summary>
+        /// 扫描注册 <typeparamref name="T"/> 的实现类型
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="srvs">服务</param>
+        /// <param name="asms">程序集</param>
+        /// <returns></returns>
+        public static IServiceCollection AddTransientOf<T>(
+            this IServiceCollection srvs, params Assembly[] asms) =>
+            srvs.AddImplOf<T>((s, t, x) => s.AddTransient(t, x), asms);
+    }
+}
