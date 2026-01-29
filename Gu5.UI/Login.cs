@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 
-using Gu5.Net.Winforms.UI.Extensions;
-using Gu5.Net.Winforms.UI.Valids;
+using Gu5.UI.Extensions;
+using Gu5.UI.Valids;
 
-namespace Gu5.Net.Winforms.UI.Controls
+namespace Gu5.UI
 {
     /// <summary>
     /// 登录

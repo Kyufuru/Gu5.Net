@@ -1,6 +1,6 @@
 ﻿using AntdUI;
 
-namespace Gu5.Net.Winforms.UI.Services
+namespace Gu5.UI.Services
 {
     /// <summary>
     /// 右键菜单

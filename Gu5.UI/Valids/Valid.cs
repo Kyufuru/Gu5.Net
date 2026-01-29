@@ -1,8 +1,9 @@
 ﻿using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 using AntdUI;
 
-namespace Gu5.Net.Winforms.UI.Valids
+namespace Gu5.UI.Valids
 {
     public class Valid : IValid
     {
@@ -181,7 +182,10 @@ namespace Gu5.Net.Winforms.UI.Valids
 
         /// <inheritdoc/>
         public void SetMsg(string name, string msg)
-            => Msg.TryAdd(name, msg);
+        {
+            if (Msg.ContainsKey(name)) return;
+            Msg[name] = msg;
+        }
 
         /// <inheritdoc/>
         public void SetMsg(Control ctl, string msg)

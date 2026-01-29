@@ -1,13 +1,13 @@
 ﻿using AntdUI;
 
-using Gu5.Net.Core;
-using Gu5.Net.Winforms.UI.Services;
-using Gu5.Net.Winforms.UI.Valids;
+using Gu5.Core;
+using Gu5.UI.Services;
+using Gu5.UI.Valids;
 
 using ContextMenuStrip = AntdUI.ContextMenuStrip;
 using Message = AntdUI.Message;
 
-namespace Gu5.Net.Winforms.UI.Extensions
+namespace Gu5.UI.Extensions
 {
     /// <summary>
     /// 弹窗

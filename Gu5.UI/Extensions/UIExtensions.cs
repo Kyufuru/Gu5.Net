@@ -1,21 +1,11 @@
-﻿using System.Drawing.Text;
+﻿using AntdUI;
 
-using AntdUI;
+using Gu5.Core;
 
-using Gu5.Net.Core;
-
-namespace Gu5.Net.Winforms.UI.Extensions
+namespace Gu5.UI.Extensions
 {
     public static class UIExtensions
     {
-        /// <summary>
-        /// 使用初始配置
-        /// </summary>
-        public static void UseUI(this App _)
-        {
-            
-        }
-
         public static Form GetForm(this Control @this)
         {
             var f = @this.FindForm();

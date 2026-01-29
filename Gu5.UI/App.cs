@@ -3,9 +3,9 @@ using System.Drawing.Text;
 
 using AntdUI;
 
-using Gu5.Net.Winforms.UI.Extensions;
+using Gu5.UI.Extensions;
 
-namespace Gu5.Net.Winforms.UI
+namespace Gu5.UI
 {
     /// <summary>
     /// 应用实体
@@ -29,7 +29,10 @@ namespace Gu5.Net.Winforms.UI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+
+#if NETCOREAPP || NET6_0_OR_GREATER
+    Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
+#endif
         }
 
         /// <summary>
@@ -43,8 +46,8 @@ namespace Gu5.Net.Winforms.UI
             AntdUI.Config.TextRenderingHighQuality = true;
             AntdUI.Config.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             AntdUI.Config.SetCorrectionTextRendering("Microsoft YaHei UI", "微软雅黑");
-            AntdUI.Config.Font = new Font("Microsoft YaHei UI", 10);
             AntdUI.Config.ShowInWindow = true;
+            AntdUI.Config.Font = new("Microsoft YaHei UI", 10);
 
             return this;
         }

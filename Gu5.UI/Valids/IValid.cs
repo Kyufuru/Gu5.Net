@@ -1,6 +1,6 @@
 ﻿using AntdUI;
 
-namespace Gu5.Net.Winforms.UI.Valids
+namespace Gu5.UI.Valids
 {
     public interface IValid
     {

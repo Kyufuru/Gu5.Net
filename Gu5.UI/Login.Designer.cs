@@ -1,4 +1,4 @@
-﻿namespace Gu5.Net.Winforms.UI.Controls
+﻿namespace Gu5.UI
 {
     partial class Login
     {

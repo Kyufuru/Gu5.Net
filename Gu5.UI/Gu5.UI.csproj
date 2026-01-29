@@ -1,12 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-	<TargetFramework>net8.0-windows</TargetFramework>
+	<TargetFrameworks>net461;net8.0-windows</TargetFrameworks>
 	<Nullable>enable</Nullable>
+	<LangVersion>latest</LangVersion>
 	<UseWindowsForms>true</UseWindowsForms>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
 	<ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+	<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,7 +18,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	<PackageReference Include="AntdUI" Version="2.2.13" />
+	  <AdditionalFiles Remove="Properties\app.manifest" />
+	</ItemGroup>
+
+	<ItemGroup>
+	<PackageReference Include="AntdUI" Version="2.2.14" />
 	<PackageReference Include="Gu5.Core" Version="1.0.0" />
 	</ItemGroup>
 
