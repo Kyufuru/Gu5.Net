@@ -1,4 +1,4 @@
-﻿namespace Gu5.Net.Winforms.Example
+﻿namespace Gu5.Demo
 {
     partial class FmLogin
     {
@@ -28,41 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmLogin));
-            Login = new Gu5.Net.Winforms.UI.Controls.Login();
             SuspendLayout();
-            // 
-            // Login
-            // 
-            Login.AutoValidate = AutoValidate.EnableAllowFocusChange;
-            Login.BackColor = Color.Transparent;
-            Login.Dock = DockStyle.Fill;
-            Login.Icon = (Image)resources.GetObject("Login.Icon");
-            Login.IsRemember = false;
-            Login.Loading = false;
-            Login.Location = new Point(0, 0);
-            Login.Name = "Login";
-            Login.Password = "";
-            Login.Size = new Size(700, 400);
-            Login.SubTitle = "[副标题]";
-            Login.TabIndex = 1;
-            Login.Title = "[标题]";
-            Login.Username = "";
-            Login.Version = "[版本号]";
-            Login.OnLogin += Login_OnLogin;
             // 
             // FmLogin
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(700, 400);
-            Controls.Add(Login);
+            ClientSize = new Size(800, 450);
             Name = "FmLogin";
             Text = "FmLogin";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Gu5.Net.Winforms.UI.Controls.Login Login;
     }
 }

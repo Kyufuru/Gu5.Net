@@ -1,6 +1,6 @@
-using Gu5.Net.Winforms.UI;
+using Gu5.UI;
 
-namespace Gu5.Net.Winforms.Example
+namespace Gu5.Demo
 {
     internal static class Program
     {

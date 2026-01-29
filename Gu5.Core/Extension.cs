@@ -5,8 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 
-using Gu5.Core;
-
 namespace Gu5.Core
 {
     /// <summary>

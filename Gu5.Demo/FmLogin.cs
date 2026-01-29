@@ -1,27 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using AntdUI;
 
-using AntdUI;
-
-namespace Gu5.Net.Winforms.Example
+namespace Gu5.Demo
 {
     public partial class FmLogin : Window
     {
         public FmLogin()
         {
             InitializeComponent();
-        }
-
-        private void Login_OnLogin(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
         }
     }
 }
