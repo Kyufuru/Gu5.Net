@@ -1,6 +1,5 @@
 <Solution>
   <Project Path="Gu5.Core/Gu5.Core.csproj" Id="7b7d9198-b578-4e1c-932d-b81aa7663af5" />
-  <Project Path="Gu5.Demo/Gu5.Demo.csproj" />
   <Project Path="Gu5.Fanuc.Focas/Gu5.Fanuc.Focas.csproj" Id="61d23396-9f93-4a7d-8b97-1faa3319161f" />
   <Project Path="Gu5.UI/Gu5.UI.csproj" />
 </Solution>

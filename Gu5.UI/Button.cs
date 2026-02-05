@@ -4,6 +4,7 @@ using AntdUI;
 
 using Gu5.Core;
 using Gu5.UI.Enums;
+using Gu5.UI.Extensions;
 
 namespace Gu5.UI
 {
@@ -61,6 +62,7 @@ namespace Gu5.UI
                     IcType.Bar => "BarcodeOutlined",
                     IcType.Qry => "SearchOutlined",
                     IcType.Save => "SaveOutlined",
+                    IcType.More => "MoreOutlined",
                     _ => IconSvg
                 };
 
@@ -68,7 +70,7 @@ namespace Gu5.UI
                 {
                     IcType.Del => TTypeMini.Error,
                     IcType.Get => TTypeMini.Primary,
-                    _ => Type,
+                    _ => TTypeMini.Default,
                 };
 
                 Text = _iconType?.GetDescription();
@@ -85,12 +87,12 @@ namespace Gu5.UI
             set
             {
                 _controlSize = value;
-                var w = $"{Text}".Length;
+                var w = CalcTextLen(Text) / 2;
                 var ff = Font.FontFamily;
 
                 if (_controlSize == CtrlSize.Small)
                 {
-                    if (w > 0) w = 40 + 15 * w;
+                    w = 35 + 17 * w;
                     Font = new(ff, 9F);
                     Size = new(w, 35);
                     IconRatio = 0.7F;
@@ -98,18 +100,18 @@ namespace Gu5.UI
 
                 if (_controlSize == CtrlSize.Medium)
                 {
-                    if (w > 0) w = 40 + 20 * w; 
+                    w = 40 + 20 * w; 
                     Font = new(ff, 10F);
                     Size = new(w, 40);
-                    IconRatio = 0.8F;
+                    IconRatio = 0.75F;
                 }
 
                 if (_controlSize == CtrlSize.Large)
                 {
-                    if (w > 0) w = 60 + 25 * w;
-                    Font = new(ff, 12.5F);
-                    Size = new(w, 50);
-                    IconRatio = 0.7F;
+                    w = 50 + 25 * w;
+                    Font = new(ff, 12F);
+                    Size = new(w, 47);
+                    IconRatio = 0.75F;
                 }
             }
         }
@@ -119,6 +121,12 @@ namespace Gu5.UI
             BorderWidth = 1;
             Size = new(80, 40);
             Font = new("Microsoft YaHei UI", 10);
+        }
+
+        private static int CalcTextLen(string? d)
+        {
+            if (string.IsNullOrEmpty(d)) return 0;
+            return d.Select(x => x.IsChinese() ? 2 : 1).Sum();
         }
     }
 }

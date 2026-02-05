@@ -90,5 +90,11 @@ namespace Gu5.UI.Enums
         /// </summary>
         [Description("保存")]
         Save,
+
+        /// <summary>
+        /// 更多
+        /// </summary>
+        [Description("")]
+        More,
     }
 }

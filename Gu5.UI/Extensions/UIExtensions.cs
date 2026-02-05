@@ -6,6 +6,9 @@ namespace Gu5.UI.Extensions
 {
     public static class UIExtensions
     {
+        public static bool IsChinese(this char @this) =>
+            @this >= 0x4E00 && @this <= 0x9FFF;
+
         public static Form GetForm(this Control @this)
         {
             var f = @this.FindForm();
