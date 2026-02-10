@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms.Design;
 
@@ -14,10 +15,12 @@ namespace Gu5.UI
     /// 控件组
     /// </summary>
     [Designer(typeof(ParentControlDesigner))]
-    public class Group : AntdUI.Panel
+    public class Group : AntdUI.Panel, ISupportInitialize
     {
         private GroupWay _direction = GroupWay.Horizontal;
-
+        private Control? _last;
+        private bool _reverse = false;
+        private int _cnt = 0;
 
         [Category("布局")]
         [Description("排列方向")]
@@ -28,88 +31,129 @@ namespace Gu5.UI
             set
             {
                 if (_direction != value)
-                    ChangeDirection(value);
-                _direction = value;
+                {
+                    _direction = value;
+                    ChangeDirection();
+                }
             }
         }
 
-        private void SetSize(bool isH, IEnumerable<AntdUI.Button> l, AntdUI.Button b)
+        void ISupportInitialize.BeginInit()
         {
-            var w = isH ? l.Sum(x => x.Width) + b.Margin.Right : b.Width;
-            var h = isH ? b.Height : l.Sum(x => x.Height) + b.Margin.Top;
+            _reverse = true;
+        }
+
+        void ISupportInitialize.EndInit()
+        {
+            _reverse = false;
+        }
+
+        /// <summary>
+        /// 获取真实尺寸
+        /// </summary>
+        /// <param name="c">控件</param>
+        /// <param name="isH">方向</param>
+        /// <returns></returns>
+        private static int GetRealSize(Control c, bool isH)
+        {
+            int len = isH ? c.Width : c.Height;
+            if (len > 0) return len;
+            
+            var p = c.GetPreferredSize(Size.Empty);
+            len = isH ? p.Width : p.Height;
+            if (len > 0) return len;
+
+            len = isH ? c.MinimumSize.Width : c.MinimumSize.Height;
+            if (len > 0) return len;
+            
+            return isH ? 80 : 32;
+        }
+
+        private static bool CanJoin(Control c) =>
+            c.GetType().GetProperty("JoinMode") is not null;
+
+        private static void Join(Control? c, TJoinMode mode)
+        {
+            if (c == null) return;
+            var prop = c.GetType().GetProperty("JoinMode");
+            if (prop != null && prop.CanWrite)
+                prop.SetValue(c, mode);
+        }
+
+        private void SetSize(bool isH, Control d)
+        {
+            var l = Controls.OfType<Control>();
+            var s = l.Sum(x => GetRealSize(x, isH));
+            var w = isH ? s + d.Margin.Right : Size.Width;
+            var h = isH ? Size.Height : s + d.Margin.Top;
+
             Size = new Size(w, h);
         }
 
-
-        private AntdUI.Button? _lastBt;
         private void AddJoin(Control? d)
         {
-            if (d is not AntdUI.Button b) return;
-
-            var l = Controls.OfType<AntdUI.Button>();
-            if (!l.Any()) return;
+            if (d is null) return;
 
             var isH = _direction == GroupWay.Horizontal;
+            d.Dock = isH ? DockStyle.Left : DockStyle.Top;
 
-            SetSize(isH, l, b);
+            var l = Controls.OfType<Control>().Where(CanJoin);
+            if (!l.Any()) return;
 
-            var cnt = l.Count();
+            SetSize(isH, d);
             
-            var bj = isH ? TJoinMode.Right : TJoinMode.Bottom;
-            var nj0 = isH ? TJoinMode.Left : TJoinMode.Top;
-            var nj = isH ? TJoinMode.LR : TJoinMode.TB;
+            var rb = isH ? TJoinMode.Right : TJoinMode.Bottom;
+            var lt = isH ? TJoinMode.Left : TJoinMode.Top;
+            var md = isH ? TJoinMode.LR : TJoinMode.TB;
 
-            b.Dock = isH ? DockStyle.Left : DockStyle.Top;
-            b.JoinMode = cnt == 1 ? TJoinMode.None : bj;
+            if (_reverse) (rb, lt) = (lt, rb);
 
-            _lastBt?.Also(x => x.JoinMode = cnt == 2 ? nj0 : nj);
-            _lastBt = b;
+            if (!CanJoin(d)) return;
+            Join(d, _cnt == 1 ? TJoinMode.None : rb);
+
+            _last?.Also(x => Join(x, _cnt == 2 ? lt : md));
+            _last = d;
         }
 
         private void RemoveJoin()
         {
-            var l = Controls.OfType<AntdUI.Button>();
+            var l = Controls.OfType<Control>().Where(CanJoin);
             if (!l.Any()) return;
 
-            var b = l.FirstOrDefault();
-            if (b is null) return;
-
+            var d = l.FirstOrDefault();
+            if (d is null || !CanJoin(d)) return;
             var isH = _direction == GroupWay.Horizontal;
 
-            SetSize(isH, l, b);
-
-            var cnt = l.Count();
+            SetSize(isH, d);
+            
             var bj = isH ? TJoinMode.Right : TJoinMode.Bottom;
-            b.JoinMode = cnt == 1 ? TJoinMode.None : bj;
+            Join(d, _cnt == 1 ? TJoinMode.None : bj);
         }
 
-        private void ChangeDirection(GroupWay d)
+        private void ChangeDirection()
         {
-            var isH = d == GroupWay.Horizontal;
-            var l = Controls.OfType<AntdUI.Button>();
-            if (!l.Any()) return;
+            SuspendLayout();
 
-            var bd = isH ? DockStyle.Left : DockStyle.Top;
-            var bj = isH ? TJoinMode.LR : TJoinMode.TB;
-            var bj0 = isH ? TJoinMode.Left : TJoinMode.Top;
-            var bj1 = isH ? TJoinMode.Right : TJoinMode.Bottom;
-
-            l.Reverse().ForEach((x, i) =>
+            var l = Controls.OfType<Control>().ToList();
+            
+            _last = null;
+            if (l.Count > 0)
             {
-                x.Dock = bd;
+                var b = l[0];
+                foreach (var c in l) c.Dock = DockStyle.None;
 
-                if (i == 0) x.JoinMode = bj0;
-                else if (i == l.Count() - 1) x.JoinMode = bj1;
-                else x.JoinMode = bj;
-            });
+                if (_direction == GroupWay.Horizontal)
+                    Height = b.Height + b.Margin.Vertical;
+                else  Width = b.Width + b.Margin.Horizontal;
+            }
 
-            var b = l.FirstOrDefault();
-            if (b is null) return;
+            _reverse = true;
+            Controls.Clear();
+            Controls.AddRange([.. l]);
+            _reverse = false;
 
-            SetSize(isH, l, b);
+            ResumeLayout(true);
         }
-
-
 
         public Group()
         {
@@ -118,16 +162,21 @@ namespace Gu5.UI
             Radius = 0;
         }
 
+        private bool IsDesigner =>  DesignMode 
+            || LicenseManager.UsageMode == LicenseUsageMode.Designtime 
+            || Process.GetCurrentProcess().ProcessName
+                .Equals("devenv", StringComparison.OrdinalIgnoreCase);
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
 
-            if (DesignMode)
+            if (IsDesigner)
             {
                 BorderWidth = 1;
                 BorderColor = "#AAA".ToColor();
                 BorderStyle = DashStyle.Dot;
             }
+            else BorderWidth = 0;
         }
 
         protected override void OnHandleDestroyed(EventArgs e)
@@ -138,13 +187,23 @@ namespace Gu5.UI
         protected override void OnControlAdded(ControlEventArgs e)
         {
             base.OnControlAdded(e);
+
+            _cnt = _reverse ? _cnt + 1 : Controls.Count;
             AddJoin(e.Control);
         }
 
         protected override void OnControlRemoved(ControlEventArgs e)
         {
             base.OnControlRemoved(e);
+
             RemoveJoin();
+
+            if (e.Control is null || !CanJoin(e.Control)) return;
+
+            _cnt--;
+            _last = _cnt == 0 ? null 
+                : Controls.OfType<Control>()
+                .Reverse().At(_cnt - 1);
         }
     }
 }
