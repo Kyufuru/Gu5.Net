@@ -73,7 +73,7 @@ namespace Gu5.UI
                     _ => TTypeMini.Default,
                 };
 
-                Text = _iconType?.GetDescription();
+                Tag = Text = _iconType?.GetDescription();
                 ControlSize = _controlSize ?? CtrlSize.Medium;
 
             }
