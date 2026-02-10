@@ -24,8 +24,13 @@ namespace Gu5.Core.DependencyInjection
         public static IServiceCollection AddImplOf<T>(this IServiceCollection @this,
             Action<IServiceCollection, Type, Type> f, params Assembly[] l)
         {
+#if NET8_0
+            ArgumentNullException.ThrowIfNull(@this);
+            ArgumentNullException.ThrowIfNull(f);
+#else
             if (@this == null) throw new ArgumentNullException(nameof(@this));
             if (f == null) throw new ArgumentNullException(nameof(f));
+#endif
             if (l == null || l.Length == 0) l = new Assembly[] { typeof(T).Assembly };
 
             var t = typeof(T);
