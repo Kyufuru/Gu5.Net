@@ -9,6 +9,28 @@
 	<ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
 	<ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
 	<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+	<PackageIcon>icon.png</PackageIcon>
+	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<Authors>Gu5</Authors>
+	<Company>Gu5</Company>
+	<Copyright />
+	<Description>Gu5 UI package with AntdUI</Description>
+	<Name />
+	<PackageIconUrl />
+	<PackageId>Gu5.UI</PackageId>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageLicenseUrl />
+	<PackageProjectUrl>https://github.com/Kyufuru/Gu5.Net/tree/master/Gu5.UI</PackageProjectUrl>
+	<PackageReleaseNotes>fix: Group Designer Border</PackageReleaseNotes>
+	<PackageTags>AntdUI;Gu5;</PackageTags>
+	<Product>Gu5</Product>
+	<RepositoryType />
+	<RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
+	<Version>1.0.2</Version>
+	<Title>Gu5.UI</Title>
+	<PackageReadmeFile></PackageReadmeFile>
+	<NeutralLanguage>zh-CN</NeutralLanguage>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -22,11 +44,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="..\Gu5.Core\icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 	<PackageReference Include="AntdUI" Version="2.2.14" />
 	<PackageReference Include="Gu5.Core" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Demos\GroupDemo.cs">
+		  <SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
