@@ -60,7 +60,7 @@ var rs = new Object()
 var len = text.With(x => x.Length);
 ```
 
-- **Find** / **ForEach** 集合操作扩展
+- **Find** / **ForEach** / **WhereIn** 集合操作扩展
 - **Sample** 随机采样
 - **At** / **Range** / **Mod** 安全索引
 - **GetDescription** 枚举描述
@@ -105,3 +105,19 @@ services.AddSingletonOf<T>(asm);
 services.AddScopedOf<T>(asm);
 services.AddTransientOf<T>(asm);
 ```
+
+#### 动画
+
+- **EaseOut** 淡出
+
+#### 类型转换
+
+- **AsGuid** 整型转 GUID
+```CSharp
+var i = 1;
+
+i.AsGuid(); // 00000001-0000-0000-0000-000000000000
+```
+
+- **GetEnums** 获取枚举所有值
+- **GetDescription** 获取枚举的 Description 特性

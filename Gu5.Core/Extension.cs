@@ -171,6 +171,18 @@ namespace Gu5.Core
         }
 
         /// <summary>
+        /// 包含筛选
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <typeparam name="TR">筛选类型</typeparam>
+        /// <param name="this"></param>
+        /// <param name="f">筛选项</param>
+        /// <param name="l">列表</param>
+        /// <returns></returns>
+        public static IEnumerable<T> WhereIn<T, TR>(this IEnumerable<T> @this,
+            Func<T, TR> f, IEnumerable<TR> l) => @this.Where(x => l.Contains(f(x)));
+
+        /// <summary>
         /// 随机
         /// </summary>
         private static readonly ThreadLocal<Random> _rnd =
@@ -325,6 +337,14 @@ namespace Gu5.Core
         }
 
         /// <summary>
+        /// 获取枚举所有值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> GetEnums<T>() where T : Enum
+            => new List<T>((T[])Enum.GetValues(typeof(T)));
+
+        /// <summary>
         /// 获取枚举描述
         /// </summary>
         /// <typeparam name="T">枚举类型</typeparam>
@@ -341,6 +361,18 @@ namespace Gu5.Core
 
             var attr = fd.GetCustomAttribute<DescriptionAttribute>();
             return attr?.Description ?? n;
+        }
+
+        /// <summary>
+        /// 自增整数转 GUID
+        /// </summary>
+        /// <param name="this">输入值</param>
+        /// <returns></returns>
+        public static Guid AsGuid(this int @this)
+        {
+            var b = new byte[16];
+            BitConverter.GetBytes(@this).CopyTo(b, 0);
+            return new Guid(b);
         }
     }
 }

@@ -22,12 +22,12 @@
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageLicenseUrl />
 	<PackageProjectUrl>https://github.com/Kyufuru/Gu5.Net/tree/master/Gu5.UI</PackageProjectUrl>
-	<PackageReleaseNotes>fix: Group Designer Border</PackageReleaseNotes>
+	<PackageReleaseNotes>fix: set tag with enum name</PackageReleaseNotes>
 	<PackageTags>AntdUI;Gu5;</PackageTags>
 	<Product>Gu5</Product>
 	<RepositoryType />
 	<RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
-	<Version>1.0.2</Version>
+	<Version>1.0.3.1</Version>
 	<Title>Gu5.UI</Title>
 	<PackageReadmeFile></PackageReadmeFile>
 	<NeutralLanguage>zh-CN</NeutralLanguage>
