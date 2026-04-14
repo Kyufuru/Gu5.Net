@@ -60,7 +60,8 @@ var rs = new Object()
 var len = text.With(x => x.Length);
 ```
 
-- **Find** / **ForEach** / **WhereIn** 集合操作扩展
+- **Find** / **ForEach** / **WhereIn** 列表操作扩展
+- **AddRange** 集合操作扩展
 - **Sample** 随机采样
 - **At** / **Range** / **Mod** 安全索引
 - **GetDescription** 枚举描述
@@ -82,30 +83,6 @@ var dict = data.Resample(x => x.Timestamp);
 var values = dict.FFill(keys, lim: 3);
 ```
 
-#### 依赖注入
-
-```CSharp
-using Gu5.Framework.Core.DependencyInjection;
-```
-
-- **AddImplOf** 扫描注册所有实现
-```CSharp
-services.AddImplOf<IMyService>(
-    (services, serviceType, implType) =>
-        services.AddSingleton(serviceType, implType),
-    typeof(IMyService).Assembly
-);
-```
-
-- **AddSingletonOf** / **AddScopedOf** / **AddTransientOf** 全局/实例/单次 生命周期
-```CSharp
-var asm = typeof(T).Assembly;
-
-services.AddSingletonOf<T>(asm);
-services.AddScopedOf<T>(asm);
-services.AddTransientOf<T>(asm);
-```
-
 #### 动画
 
 - **EaseOut** 淡出
@@ -121,3 +98,19 @@ i.AsGuid(); // 00000001-0000-0000-0000-000000000000
 
 - **GetEnums** 获取枚举所有值
 - **GetDescription** 获取枚举的 Description 特性
+
+#### 反射
+
+- **SetValue** (泛型对象)动态设置属性值
+```CSharp
+public void Open<T>(T d)
+{
+    // if d.Open exists and can be written, then d.Open = true
+    d.SetValue("Open", true);
+}
+```
+
+- **GetInstancesOf** 获取接口实例
+```CSharp
+GetInstancesOf<IService>();
+```

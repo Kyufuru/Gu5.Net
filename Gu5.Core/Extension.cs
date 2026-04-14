@@ -10,6 +10,41 @@ namespace Gu5.Core
     /// <summary>
     /// 扩展
     /// </summary>
+    public static class Ex
+    {
+        /// <summary>
+        /// 时间轴
+        /// </summary>
+        /// <param name="t1">开始时间</param>
+        /// <param name="t2">结束时间</param>
+        /// <exception cref="NotImplementedException"></exception>
+        /// <returns><![CDATA[List<DateTime>]]></returns>
+        public static List<DateTime> RangeFrom(DateTime t1, DateTime t2)
+        {
+            var tm = new DateTime
+            (
+                t1.Year, t1.Month, t1.Day,
+                t1.Hour, t1.Minute, 0,
+                t1.Kind
+            );
+
+            var rs = new List<DateTime>();
+            for (var i = tm; i <= t2; i = i.AddMinutes(1)) rs.Add(i);
+            return rs;
+        }
+
+        /// <summary>
+        /// 获取枚举所有值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> GetEnums<T>() where T : Enum
+            => new List<T>((T[])Enum.GetValues(typeof(T)));
+    }
+
+    /// <summary>
+    /// 扩展
+    /// </summary>
     public static class Extension
     {
         /// <summary>
@@ -183,6 +218,14 @@ namespace Gu5.Core
             Func<T, TR> f, IEnumerable<TR> l) => @this.Where(x => l.Contains(f(x)));
 
         /// <summary>
+        /// 集合添加多个元素
+        /// </summary>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="this">集合</param>
+        /// <param name="l">列表</param>
+        public static void AddRange<T>(this ICollection<T> @this, IEnumerable<T> l) => l.ForEach(@this.Add);
+
+        /// <summary>
         /// 随机
         /// </summary>
         private static readonly ThreadLocal<Random> _rnd =
@@ -260,27 +303,6 @@ namespace Gu5.Core
         }
 
         /// <summary>
-        /// 时间轴
-        /// </summary>
-        /// <param name="t1">开始时间</param>
-        /// <param name="t2">结束时间</param>
-        /// <exception cref="NotImplementedException"></exception>
-        /// <returns><![CDATA[List<DateTime>]]></returns>
-        public static List<DateTime> RangeFrom(DateTime t1, DateTime t2)
-        {
-            var tm = new DateTime
-            (
-                t1.Year, t1.Month, t1.Day,
-                t1.Hour, t1.Minute, 0,
-                t1.Kind
-            );
-
-            var rs = new List<DateTime>();
-            for (var i = tm; i <= t2; i = i.AddMinutes(1)) rs.Add(i);
-            return rs;
-        }
-
-        /// <summary>
         /// 重采样
         /// </summary>
         /// <typeparam name="T"/>
@@ -337,14 +359,6 @@ namespace Gu5.Core
         }
 
         /// <summary>
-        /// 获取枚举所有值
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static List<T> GetEnums<T>() where T : Enum
-            => new List<T>((T[])Enum.GetValues(typeof(T)));
-
-        /// <summary>
         /// 获取枚举描述
         /// </summary>
         /// <typeparam name="T">枚举类型</typeparam>
@@ -373,6 +387,23 @@ namespace Gu5.Core
             var b = new byte[16];
             BitConverter.GetBytes(@this).CopyTo(b, 0);
             return new Guid(b);
+        }
+
+        /// <summary>
+        /// 反射获取接口实例
+        /// </summary>
+        /// <typeparam name="T">接口</typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> GetInstancesOf<T>()
+        {
+            if (!typeof(T).IsInterface) return Enumerable.Empty<T>();
+
+            return AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(x => x.GetTypes().Where(t =>
+                    typeof(T).IsAssignableFrom(t) &&
+                    !t.IsInterface && !t.IsAbstract))
+                .Select(Activator.CreateInstance)
+                .OfType<T>();
         }
     }
 }

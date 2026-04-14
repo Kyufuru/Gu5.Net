@@ -21,6 +21,7 @@ namespace Gu5.Core.DependencyInjection
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
+        [Obsolete("use package:'Scrutor'")]
         public static IServiceCollection AddImplOf<T>(this IServiceCollection @this,
             Action<IServiceCollection, Type, Type> f, params Assembly[] l)
         {
@@ -67,6 +68,7 @@ namespace Gu5.Core.DependencyInjection
         /// <param name="srvs">服务</param>
         /// <param name="asms">程序集</param>
         /// <returns></returns>
+        [Obsolete("use package:'Scrutor'")]
         public static IServiceCollection AddSingletonOf<T>(
             this IServiceCollection srvs, params Assembly[] asms) =>
             srvs.AddImplOf<T>((s, t, x) => s.AddSingleton(t, x), asms);
@@ -78,6 +80,7 @@ namespace Gu5.Core.DependencyInjection
         /// <param name="srvs">服务</param>
         /// <param name="asms">程序集</param>
         /// <returns></returns>
+        [Obsolete("use package:'Scrutor'")]
         public static IServiceCollection AddScopedOf<T>(
             this IServiceCollection srvs, params Assembly[] asms) =>
             srvs.AddImplOf<T>((s, t, x) => s.AddScoped(t, x), asms);
@@ -89,6 +92,7 @@ namespace Gu5.Core.DependencyInjection
         /// <param name="srvs">服务</param>
         /// <param name="asms">程序集</param>
         /// <returns></returns>
+        [Obsolete("use package:'Scrutor'")]
         public static IServiceCollection AddTransientOf<T>(
             this IServiceCollection srvs, params Assembly[] asms) =>
             srvs.AddImplOf<T>((s, t, x) => s.AddTransient(t, x), asms);
