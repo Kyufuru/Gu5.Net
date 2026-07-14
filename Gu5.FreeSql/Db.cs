@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 using FreeSql;
 using FreeSql.Internal;
@@ -13,14 +12,19 @@ namespace Gu5.FreeSql
     /// </summary>
     public static class Db
     {
-        private static readonly Lazy<FreeSqlCloud<string>> _lazy = new Lazy<FreeSqlCloud<string>>(NewDb);
+        private static Lazy<FreeSqlCloud<string>> _lazy;
+
+        /// <summary>
+        /// 跨数据库对象, 用于注册单例
+        /// </summary>
+        public static FreeSqlCloud<string> FSql => _lazy?.Value;
 
         /// <summary>
         /// 数据库
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IFreeSql Dbo<T>() => _lazy.Value.Use(typeof(T).Name);
+        public static IFreeSql Dbo<T>() => FSql?.Use(typeof(T).Name);
 
 
         /// <summary>
@@ -32,26 +36,10 @@ namespace Gu5.FreeSql
         /// 初始化数据库
         /// </summary>
         /// <returns></returns>
-        private static FreeSqlCloud<string> NewDb()
+        public static FreeSqlCloud<string> Init(Func<FreeSqlCloud<string>> f)
         {
-            Utils.IsStrict = false;
-
-            var db = new FreeSqlCloud<string>();
-
-            var tps = Assembly
-                .GetExecutingAssembly().GetTypes()
-                .Where(t =>
-                    typeof(IDb).IsAssignableFrom(t) &&
-                    !t.IsInterface && !t.IsAbstract);
-
-            foreach (var x in tps)
-            {
-                var idb = Activator.CreateInstance(x) as IDb;
-                var dbo = idb?.Register(new FreeSqlBuilder(), Config);
-                db.Register(x.Name, () => dbo);
-            }
-
-            return db;
+            if (_lazy is null) _lazy = new Lazy<FreeSqlCloud<string>>(f);
+            return FSql;
         }
     }
 }

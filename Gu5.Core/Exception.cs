@@ -112,6 +112,20 @@ namespace Gu5.Core
     }
 
     /// <summary>
+    /// 登录已过期(401)
+    /// </summary>
+    public class GAuthException : GException
+    {
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="msg">消息</param>
+        /// <param name="code">错误码</param>
+        public GAuthException(string msg = null, int code = 401) : 
+            base((msg ?? "登录已过期，请重新登录"), code: code) { }
+    }
+
+    /// <summary>
     /// 未实现
     /// </summary>
     public class GNopeException : GException 

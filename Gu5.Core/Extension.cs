@@ -176,7 +176,7 @@ namespace Gu5.Core
         }
 
         /// <summary>
-        /// 
+        /// 带返回的 ForEach
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -189,7 +189,7 @@ namespace Gu5.Core
         }
 
         /// <summary>
-        /// 
+        /// 带返回的 ForEach
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -390,20 +390,45 @@ namespace Gu5.Core
         }
 
         /// <summary>
-        /// 反射获取接口实例
+        /// 动态设置对象属性值（支持枚举）
         /// </summary>
-        /// <typeparam name="T">接口</typeparam>
-        /// <returns></returns>
-        public static IEnumerable<T> GetInstancesOf<T>()
+        /// <typeparam name="T">类型</typeparam>
+        /// <typeparam name="TP">值类型</typeparam>
+        /// <param name="this">对象</param>
+        /// <param name="n">属性</param>
+        /// <param name="d">值</param>
+        public static void SetValue<T, TP>(this T @this, string n, TP d) where T : class
         {
-            if (!typeof(T).IsInterface) return Enumerable.Empty<T>();
+            if (@this is null) return;
 
-            return AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(x => x.GetTypes().Where(t =>
-                    typeof(T).IsAssignableFrom(t) &&
-                    !t.IsInterface && !t.IsAbstract))
-                .Select(Activator.CreateInstance)
-                .OfType<T>();
+            var p = @this.GetType().GetProperty(n);
+            if (p == null || !p.CanWrite) return;
+
+            try
+            {
+                if (p.PropertyType.IsEnum && d is string sv)
+                    p.SetValue(@this, Enum.Parse(p.PropertyType, sv));
+                else p.SetValue(@this, d);
+            }
+            catch { /* 跳过 */ }
         }
+
+        /// <summary>
+        /// 字符串比较（不区分大小写）
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static bool EqualNoCase(this string @this, string d) =>
+            @this.Equals(d, StringComparison.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// 字符串前缀比较（不区分大小写）
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static bool StartsWithNoCase(this string @this, string d) =>
+            @this.StartsWith(d, StringComparison.OrdinalIgnoreCase);
     }
 }

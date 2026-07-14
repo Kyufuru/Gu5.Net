@@ -104,7 +104,7 @@
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button11.IconRatio = 0.75F;
             this.button11.IconSvg = "PrinterOutlined";
-            this.button11.IconType = Gu5.UI.Enums.IcType.Prt;
+            this.button11.Style = Gu5.UI.Enums.IcType.Prt;
             this.button11.Location = new System.Drawing.Point(392, 110);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(80, 40);
@@ -119,7 +119,7 @@
             this.button12.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button12.IconSvg = "BarcodeOutlined";
-            this.button12.IconType = Gu5.UI.Enums.IcType.Bar;
+            this.button12.Style = Gu5.UI.Enums.IcType.Bar;
             this.button12.Location = new System.Drawing.Point(392, 69);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(70, 35);
@@ -135,7 +135,7 @@
             this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button10.IconRatio = 0.75F;
             this.button10.IconSvg = "DownloadOutlined";
-            this.button10.IconType = Gu5.UI.Enums.IcType.Down;
+            this.button10.Style = Gu5.UI.Enums.IcType.Down;
             this.button10.Location = new System.Drawing.Point(392, 156);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 47);
@@ -151,7 +151,7 @@
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button7.IconRatio = 0.75F;
             this.button7.IconSvg = "QrcodeOutlined";
-            this.button7.IconType = Gu5.UI.Enums.IcType.QR;
+            this.button7.Style = Gu5.UI.Enums.IcType.QR;
             this.button7.Location = new System.Drawing.Point(251, 156);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(125, 47);
@@ -166,7 +166,7 @@
             this.button15.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button15.IconSvg = "UploadOutlined";
-            this.button15.IconType = Gu5.UI.Enums.IcType.Up;
+            this.button15.Style = Gu5.UI.Enums.IcType.Up;
             this.button15.Location = new System.Drawing.Point(507, 69);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(69, 35);
@@ -182,7 +182,7 @@
             this.button8.ForeColor = System.Drawing.Color.RoyalBlue;
             this.button8.IconRatio = 0.75F;
             this.button8.IconSvg = "FilterOutlined";
-            this.button8.IconType = Gu5.UI.Enums.IcType.Flt;
+            this.button8.Style = Gu5.UI.Enums.IcType.Flt;
             this.button8.Location = new System.Drawing.Point(251, 110);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(80, 40);
@@ -198,7 +198,7 @@
             this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button14.IconRatio = 0.75F;
             this.button14.IconSvg = "SaveOutlined";
-            this.button14.IconType = Gu5.UI.Enums.IcType.Save;
+            this.button14.Style = Gu5.UI.Enums.IcType.Save;
             this.button14.Location = new System.Drawing.Point(507, 110);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(80, 40);
@@ -213,7 +213,7 @@
             this.button9.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button9.IconSvg = "SearchOutlined";
-            this.button9.IconType = Gu5.UI.Enums.IcType.Qry;
+            this.button9.Style = Gu5.UI.Enums.IcType.Qry;
             this.button9.Location = new System.Drawing.Point(251, 69);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(70, 35);
@@ -229,7 +229,7 @@
             this.button13.ForeColor = System.Drawing.Color.RoyalBlue;
             this.button13.IconRatio = 0.75F;
             this.button13.IconSvg = "SaveOutlined";
-            this.button13.IconType = Gu5.UI.Enums.IcType.Save;
+            this.button13.Style = Gu5.UI.Enums.IcType.Save;
             this.button13.Location = new System.Drawing.Point(593, 110);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(80, 40);
@@ -245,7 +245,7 @@
             this.button4.ForeColor = System.Drawing.Color.RoyalBlue;
             this.button4.IconRatio = 0.75F;
             this.button4.IconSvg = "RetweetOutlined";
-            this.button4.IconType = Gu5.UI.Enums.IcType.Get;
+            this.button4.Style = Gu5.UI.Enums.IcType.Get;
             this.button4.Location = new System.Drawing.Point(131, 156);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 47);
@@ -261,7 +261,7 @@
             this.button16.ForeColor = System.Drawing.Color.Green;
             this.button16.IconRatio = 0.75F;
             this.button16.IconSvg = "SaveOutlined";
-            this.button16.IconType = Gu5.UI.Enums.IcType.Save;
+            this.button16.Style = Gu5.UI.Enums.IcType.Save;
             this.button16.Location = new System.Drawing.Point(507, 156);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(80, 40);
@@ -277,7 +277,7 @@
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button5.IconRatio = 0.75F;
             this.button5.IconSvg = "ExportOutlined";
-            this.button5.IconType = Gu5.UI.Enums.IcType.Exp;
+            this.button5.Style = Gu5.UI.Enums.IcType.Exp;
             this.button5.Location = new System.Drawing.Point(131, 110);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(80, 40);
@@ -293,7 +293,7 @@
             this.button17.ForeColor = System.Drawing.Color.Firebrick;
             this.button17.IconRatio = 0.75F;
             this.button17.IconSvg = "SaveOutlined";
-            this.button17.IconType = Gu5.UI.Enums.IcType.Save;
+            this.button17.Style = Gu5.UI.Enums.IcType.Save;
             this.button17.Location = new System.Drawing.Point(593, 156);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(80, 40);
@@ -308,7 +308,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button6.IconSvg = "ImportOutlined";
-            this.button6.IconType = Gu5.UI.Enums.IcType.Imp;
+            this.button6.Style = Gu5.UI.Enums.IcType.Imp;
             this.button6.Location = new System.Drawing.Point(131, 69);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(70, 35);
@@ -324,7 +324,7 @@
             this.button18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(95)))), ((int)(((byte)(25)))));
             this.button18.IconRatio = 0.75F;
             this.button18.IconSvg = "SaveOutlined";
-            this.button18.IconType = Gu5.UI.Enums.IcType.Save;
+            this.button18.Style = Gu5.UI.Enums.IcType.Save;
             this.button18.Location = new System.Drawing.Point(675, 156);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(80, 40);
@@ -340,7 +340,7 @@
             this.button3.ForeColor = System.Drawing.Color.Firebrick;
             this.button3.IconRatio = 0.75F;
             this.button3.IconSvg = "DeleteOutlined";
-            this.button3.IconType = Gu5.UI.Enums.IcType.Del;
+            this.button3.Style = Gu5.UI.Enums.IcType.Del;
             this.button3.Location = new System.Drawing.Point(12, 156);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 47);
@@ -356,7 +356,7 @@
             this.button19.ForeColor = System.Drawing.Color.DimGray;
             this.button19.IconRatio = 0.75F;
             this.button19.IconSvg = "SaveOutlined";
-            this.button19.IconType = Gu5.UI.Enums.IcType.Save;
+            this.button19.Style = Gu5.UI.Enums.IcType.Save;
             this.button19.Location = new System.Drawing.Point(675, 110);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(80, 40);
@@ -372,7 +372,7 @@
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button2.IconRatio = 0.75F;
             this.button2.IconSvg = "FormOutlined";
-            this.button2.IconType = Gu5.UI.Enums.IcType.Set;
+            this.button2.Style = Gu5.UI.Enums.IcType.Set;
             this.button2.Location = new System.Drawing.Point(12, 110);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 40);
@@ -388,7 +388,7 @@
             this.button26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button26.IconRatio = 0.75F;
             this.button26.IconSvg = "MoreOutlined";
-            this.button26.IconType = Gu5.UI.Enums.IcType.More;
+            this.button26.Style = Gu5.UI.Enums.IcType.More;
             this.button26.Location = new System.Drawing.Point(593, 69);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(35, 35);
@@ -402,7 +402,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.button1.IconSvg = "PlusOutlined";
-            this.button1.IconType = Gu5.UI.Enums.IcType.Add;
+            this.button1.Style = Gu5.UI.Enums.IcType.Add;
             this.button1.Location = new System.Drawing.Point(12, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(70, 35);

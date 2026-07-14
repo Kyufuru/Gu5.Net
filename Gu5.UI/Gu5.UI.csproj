@@ -51,11 +51,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	<PackageReference Include="AntdUI" Version="2.2.14" />
-	<PackageReference Include="Gu5.Core" Version="1.0.0" />
+	<PackageReference Include="AntdUI" Version="2.4.1" />
+	<PackageReference Include="Gu5.Core" Version="1.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Demos\FormItemDemo.cs">
+		  <SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Demos\GroupDemo.cs">
 		  <SubType>Form</SubType>
 		</Compile>

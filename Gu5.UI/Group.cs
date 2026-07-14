@@ -22,7 +22,7 @@ namespace Gu5.UI
         private bool _reverse = false;
         private int _cnt = 0;
 
-        [Category("布局")]
+        [Category("Gu5_布局")]
         [Description("排列方向")]
         [DefaultValue(GroupWay.Horizontal)]
         public GroupWay Direction 

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
-    <PackageIcon>icon.png</PackageIcon>
+    <Version>1.4.1</Version>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Authors>Gu5</Authors>
@@ -13,12 +13,11 @@
     <PackageId>Gu5.Core</PackageId>
     <PackageLicenseUrl />
     <PackageProjectUrl>https://github.com/Kyufuru/Gu5.Net</PackageProjectUrl>
-    <PackageReleaseNotes>feat: SetValue - set property for generic type</PackageReleaseNotes>
+    <PackageReleaseNotes>feat: reflection - GetInstancesOf&lt;T&gt;</PackageReleaseNotes>
     <PackageTags>gu5</PackageTags>
     <Product>Gu5.Core</Product>
     <RepositoryType />
     <RepositoryUrl>https://github.com/Kyufuru/Gu5.Net.git</RepositoryUrl>
-    <Version>1.4.0</Version>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <SignAssembly>False</SignAssembly>
@@ -32,7 +31,8 @@
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <Name />
     <PackageIconUrl />
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <BaseOutputPath>D:\Code\Build\Gu5\Gu5.Core</BaseOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -46,23 +46,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="icon.png" />
-    <None Remove="README.md" />
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </Content>
-    <Content Include="readme.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.2" />
+    <PackageReference Include="Flurl" Version="4.0.0" />
+    <PackageReference Include="Flurl.Http" Version="4.0.2" />
   </ItemGroup>
 
 </Project>

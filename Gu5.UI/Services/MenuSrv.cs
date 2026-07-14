@@ -15,7 +15,7 @@ namespace Gu5.UI.Services
         /// <summary>
         /// 订阅事件
         /// </summary>
-        public Dictionary<string, Action<ContextMenuStripItem>> Events { get; set; } = [];
+        public Dictionary<string, Action<IContextMenuStrip>> Events { get; set; } = [];
 
         /// <summary>
         /// 添加菜单
@@ -24,7 +24,7 @@ namespace Gu5.UI.Services
         /// <param name="e">点击事件</param>
         /// <returns></returns>
         public MenuSrv Add(ContextMenuStripItem it,
-            Action<ContextMenuStripItem> e)
+            Action<IContextMenuStrip> e)
         {
             Items.RemoveAll(x => x.Text == it.Text);
             Items.Add(it);
@@ -39,7 +39,7 @@ namespace Gu5.UI.Services
         /// <param name="name">菜单项名称</param>
         /// <param name="e">点击事件</param>
         /// <returns></returns>
-        public MenuSrv Add(string name, Action<ContextMenuStripItem> e) =>
+        public MenuSrv Add(string name, Action<IContextMenuStrip> e) =>
             Add(new ContextMenuStripItem(name), e);
     }
 }

@@ -15,10 +15,10 @@ namespace Gu5.UI
     {
         private CtrlSize? _controlSize;
         private TTypeMini? _type;
-        private IcType? _iconType;
+        private IcType? _style;
 
-        [Category("外观")]
-        [Description("按钮类型")]
+        [Category("Gu5_外观")]
+        [Description("类型")]
         public new TTypeMini? Type
         {
             get => _type;
@@ -38,15 +38,15 @@ namespace Gu5.UI
             }
         }
 
-        [Category("外观")]
-        [Description("图标类型")]
-        public IcType? IconType
+        [Category("Gu5_外观")]
+        [Description("样式")]
+        public IcType? Style
         {
-            get => _iconType;
+            get => _style;
             set
             {
-                _iconType = value;
-                IconSvg = _iconType switch
+                _style = value;
+                IconSvg = _style switch
                 {
                     IcType.Add => "PlusOutlined",
                     IcType.Set => "FormOutlined",
@@ -66,21 +66,21 @@ namespace Gu5.UI
                     _ => IconSvg
                 };
 
-                Type = _iconType switch
+                Type = _style switch
                 {
                     IcType.Del => TTypeMini.Error,
                     IcType.Get => TTypeMini.Primary,
                     _ => TTypeMini.Default,
                 };
 
-                Text = _iconType?.GetDescription();
-                Tag = $"{_iconType}";
+                Text = _style?.GetDescription();
+                Tag = $"{_style}";
                 ControlSize = _controlSize ?? CtrlSize.Medium;
 
             }
         }
 
-        [Category("外观")]
+        [Category("Gu5_外观")]
         [Description("尺寸")]
         public CtrlSize? ControlSize
         {
